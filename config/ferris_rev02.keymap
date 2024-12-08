@@ -12,7 +12,6 @@
 #define LEFT_L 1
 #define RIGHT_L 2
 #define BOTH_L 3
-#define SYM_L 4
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 
@@ -26,6 +25,41 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+
+        acnt_a: accent_a {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lwr_acnt_a>, <&upr_acnt_a>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        acnt_e: accent_e {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lwr_acnt_e>, <&upr_acnt_e>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        
+        acnt_i: accent_i {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lwr_acnt_i>, <&upr_acnt_i>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+                
+        acnt_o: accent_o {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lwr_acnt_o>, <&upr_acnt_o>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+                        
+        acnt_u: accent_u {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lwr_acnt_u>, <&upr_acnt_u>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 

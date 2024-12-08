@@ -31,6 +31,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&lwr_acnt_a>, <&upr_acnt_a>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -38,27 +39,31 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&lwr_acnt_e>, <&upr_acnt_e>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        
+
         acnt_i: accent_i {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&lwr_acnt_i>, <&upr_acnt_i>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-                
+
         acnt_o: accent_o {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&lwr_acnt_o>, <&upr_acnt_o>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-                        
+
         acnt_u: accent_u {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&lwr_acnt_u>, <&upr_acnt_u>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -283,10 +288,10 @@
 
         BOTH_Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans    &trans  &trans
+&trans   &trans  &acnt_e  &trans  &trans    &trans  &acnt_u  &acnt_i  &acnt_o  &trans
+&acnt_a  &trans  &trans   &trans  &trans    &trans  &trans   &trans   &trans   &trans
+&trans   &trans  &trans   &trans  &trans    &trans  &trans   &trans   &trans   &trans
+                          &trans  &trans    &trans  &trans
             >;
         };
     };

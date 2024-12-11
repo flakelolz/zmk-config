@@ -290,6 +290,11 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp ESC>;
         };
+
+        caps_word {
+            bindings = <&caps_word>;
+            key-positions = <20 21>;
+        };
     };
 
     keymap {

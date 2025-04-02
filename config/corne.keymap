@@ -64,11 +64,11 @@
 #include <dt-bindings/zmk/bt.h>
 
 // layers
-#define DEF     0
-#define NUM     1
-#define NAV     2
-#define MEDIA   3
-#define FUN     4
+#define DEF       0
+#define LOWER     1
+#define RAISE     2
+#define ADJUST    3
+
 
 // #include "keys/36.h"
 // #include "includes/macros.dtsi"
@@ -105,8 +105,8 @@
 // #define BVOLD    &kp  K_VOL_DN
 // #define BVOLU    &kp  K_VOL_UP
 // #define OUTTOG   &out OUT_TOG // toggle keyboard output bluetooth/usb
-// #define ___      &trans      //  transparent
-// #define _x_      &none
+#define ___      &trans      //  transparent
+#define _x_      &none
 
 // Home row mods
 // #define HRML(k1, k2, k3, k4) &hml LSHFT k1 &hml LCTRL k2 &hml LALT  k3 &hml LGUI  k4

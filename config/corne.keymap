@@ -44,8 +44,8 @@
 // #define BVOLD    &kp  K_VOL_DN
 // #define BVOLU    &kp  K_VOL_UP
 // #define OUTTOG   &out OUT_TOG // toggle keyboard output bluetooth/usb
-#define ___      &trans      //  transparent
-#define _x_      &none
+// #define ___      &trans      //  transparent
+// #define _x_      &none
 
 // Home row mods
 // #define HRML(k1, k2, k3, k4) &hml LSHFT k1 &hml LCTRL k2 &hml LALT  k3 &hml LGUI  k4
@@ -61,6 +61,7 @@
   keymap {
     compatible = "zmk,keymap";
     default_layer { // layer 0 (default)
+    label = "Base";
       bindings = <
 // ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
 // │    Q    │    W    │    E    │    R    │    T    │   │    Y    │    U    │    I    │    O    │    P    │
@@ -78,6 +79,7 @@
       >;
     };
     lower_layer { // layer 1 (lower)
+    label = "Lower";
       bindings = <
 // ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
 // │    Q    │    W    │    E    │    R    │    T    │   │    Y    │    U    │    I    │    O    │    P    │

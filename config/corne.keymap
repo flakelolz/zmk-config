@@ -92,7 +92,7 @@
     &kp DLLR  &kp HASH  &kp LBKT  &kp RBKT  &kp CARET       &none   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp BSLH
 // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
 //                     │         │         │  HELD_  │   │  0-ADJ  │    _    │         │
-                          &none     &none     &trans      &kp KP_N0 &kp UNDER   &trans
+                          &none     &none     &trans      &kp KP_N0 &kp UNDER   &none
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
       >;
     };
@@ -110,8 +110,8 @@
 // │    F9   │   F10   │   F11   │   F12   │   ::    │   │         │  PgDn   │   PgUp  │         │    |    │
      &kp F9    &kp F10   &kp F11   &kp F12    &trans        &none   &kp PG_DN &kp PG_UP   &none   &kp PIPE
 // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-//                     │         │         │   ADJ   │   │  HELD_  │    _    │         │
-                          &none     &none     &trans       &trans   &kp UNDER   &trans
+//                     │         │         │   ADJ   │   │  HELD_  │         │         │
+                          &none     &none     &trans       &trans     &none     &none
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
       >;
     };

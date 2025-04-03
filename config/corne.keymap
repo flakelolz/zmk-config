@@ -130,7 +130,7 @@
       &none     &none     &none     &none     &none         &none     &none     &none     &none     &none
 // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
 //                     │         │         │  HELD_  │   │  _HELD  │         │         │
-                          &none     &none     &none          &none    &none   &none
+                          &none     &none     &trans         &trans   &none   &none
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
       >;
     };

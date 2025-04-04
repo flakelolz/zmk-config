@@ -8,7 +8,7 @@
                 <&macro_tap>,
                 <&kp MINUS>,
                 <&macro_tap>,
-                <&kp GREATER_THAN>,
+                <&kp GREATER_THAN>;
         };
 
         b_arrw: back_arrow { // ->
@@ -18,7 +18,7 @@
                 <&macro_tap>,
                 <&kp LESS_THAN>,
                 <&macro_tap>,
-                <&kp MINUS>,
+                <&kp MINUS>;
         };
         
         f_arrw: fat_arrow { // =>
@@ -28,7 +28,7 @@
                 <&macro_tap>,
                 <&kp EQUAL>,
                 <&macro_tap>,
-                <&kp GREATER_THAN>,
+                <&kp GREATER_THAN>;
         };
 
         pipe: pipe_op { // |>
@@ -38,7 +38,7 @@
                 <&macro_tap>,
                 <&kp PIPE>,
                 <&macro_tap>,
-                <&kp GREATER_THAN>,
+                <&kp GREATER_THAN>;
         };
 
         b_pipe: pipe_op { // ~>
@@ -48,7 +48,7 @@
                 <&macro_tap>,
                 <&kp TILDE>,
                 <&macro_tap>,
-                <&kp GREATER_THAN>,
+                <&kp GREATER_THAN>;
         };
 
         pipe: pipe_op { // :=
@@ -58,7 +58,7 @@
                 <&macro_tap>,
                 <&kp COLON>,
                 <&macro_tap>,
-                <&kp EQUAL>,
+                <&kp EQUAL>;
         };
 
         // ACCENT LETTERS
@@ -229,4 +229,5 @@
 
             label = "UPR_ENE";
         };
-}; 
+    };
+};

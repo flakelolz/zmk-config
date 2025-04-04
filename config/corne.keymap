@@ -102,13 +102,13 @@
     bindings = <
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      F1     │      F2     │      F3     │      F4     │             │   │      HOME   │      DEL    │      INS    │      END    │      ~      │
-      &kp F1        &kp F2        &kp F3        &kp F4          &s_arrw           &kp HOME      &kp DEL       &kp INS       &kp END       &kp TILDE
+      &kp F1        &kp F2        &kp F3        &kp F4        &pipe_td          &kp HOME      &kp DEL       &kp INS       &kp END       &kp TILDE
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │      '      │
-      &kp F5        &kp F6        &kp F7        &kp F8          &none           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp GRAVE
+      &kp F5        &kp F6        &kp F7        &kp F8        &arrw_td           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp GRAVE
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │      Pg_Dn  │      Pg_Up  │             │      |      │
-      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none       &kp PG_DN     &kp PG_UP       &none       &kp PIPE
+      &kp F9       &kp F10       &kp F11       &kp F12        &wlrus_td           &none       &kp PG_DN     &kp PG_UP       &none       &kp PIPE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │  (BSPC, 3)  │   │    _HELD    │             │             │
                                    &trans        &trans         &none             &trans        &trans        &trans
@@ -145,11 +145,31 @@
           then-layer = <3>;
       };
   };
+};
 
+/ {
+    behaviors {
+        arrw_td: arrow_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&s_arrw>, <&b_arrow>;
+        };
 
-  
-  
+        pipe_td: pipe_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&pipe>, <&b_pipe>;
+        };
 
+        wlrus_td: wallrus_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&f_arrw>, <&wlrus>;
+        };
+    };
 };
 
 / {
@@ -165,7 +185,7 @@
                 <&kp GREATER_THAN>;
         };
 
-        b_arrw: back_arrow { // ->
+        b_arrw: back_arrow { // <-
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -205,7 +225,7 @@
                 <&kp GREATER_THAN>;
         };
 
-        wrus: wallrus { // :=
+        wlrus: wallrus { // :=
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =

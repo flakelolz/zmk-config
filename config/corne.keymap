@@ -134,27 +134,4 @@
       >;
     };
   };
-
-  // Condition to enter adjust layer
-  conditional_layers {
-      compatible = "zmk,conditional-layers";
-      tri_layer {
-          if-layers = <1 2>;
-          then-layer = <3>;
-      };
-  };
-  
-  
-  macros {
-      // PROGRAMMING SYNTAX
-      s_arrw: slim_arrow { // ->
-          compatible = "zmk,behavior-macro";
-          #binding-cells = <0>;
-          bindings =
-              <&macro_tap>,
-              <&kp MINUS>,
-              <&macro_tap>,
-              <&kp GREATER_THAN>,
-      };
-  };
 };

@@ -52,37 +52,11 @@
 // #define HRMR(k1, k2, k3, k4) &hmr RGUI  k1 &hmr RALT  k2 &hmr RCTRL k3 &hmr RSHFT k4
 
 / {
-    macros {
-        // PROGRAMMING SYNTAX
-        s_arrw: slim_arrow { // ->
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_tap>,
-                <&kp GREATER_THAN>,
-        };
-    };
-};
-
-/ {
+  // 5x3 Layout
   chosen {
     zmk,matrix_transform = &five_column_transform;
   };
-};
 
-/ {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
-};
-
-/ {
   keymap {
     compatible = "zmk,keymap";
     default_layer { // layer 0 (default)
@@ -159,5 +133,28 @@
 //                         ╰───────────────────────────────────╯   ╰───────────────────────────────────╯
       >;
     };
+  };
+
+  // Condition to enter adjust layer
+  conditional_layers {
+      compatible = "zmk,conditional-layers";
+      tri_layer {
+          if-layers = <1 2>;
+          then-layer = <3>;
+      };
+  };
+  
+  
+  macros {
+      // PROGRAMMING SYNTAX
+      s_arrw: slim_arrow { // ->
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          bindings =
+              <&macro_tap>,
+              <&kp MINUS>,
+              <&macro_tap>,
+              <&kp GREATER_THAN>,
+      };
   };
 };

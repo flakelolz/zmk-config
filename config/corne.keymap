@@ -63,6 +63,8 @@
                 <&macro_tap>,
                 <&kp GREATER_THAN>,
         };
+    };
+};
 
 / {
   chosen {

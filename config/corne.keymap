@@ -94,16 +94,16 @@
     bindings = <
 // ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
 // │    !    │    @    │    {    │    }    │    %    │   │    -    │    7    │    8    │    9    │    '    │
-    &kp EXCL   &kp AT   &kp LBRC  &kp RBRC  &kp PRCNT     &kp MINUS &kp KP_N7 &kp KP_N8 &kp KP_N9  &kp SQT
+    &kp EXCL   &kp AT   &kp LBRC  &kp RBRC  &kp PRCNT    &kp KP_MINUS &kp KP_N7 &kp KP_N8 &kp KP_N9  &kp SQT
 // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
 // │    =    │    &    │    (    │    )    │    *    │   │    +    │    4    │    5    │    6    │    "    │
-    &kp EQUAL &kp AMPS  &kp LPAR  &kp RPAR  &kp STAR      &kp PLUS  &kp KP_N4 &kp KP_N5 &kp KP_N6  &kp DQT
+    &kp EQUAL &kp AMPS  &kp LPAR  &kp RPAR  &kp STAR     &kp KP_PLUS  &kp KP_N4 &kp KP_N5 &kp KP_N6  &kp DQT
 // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
 // │    $    │    #    │    [    │    ]    │    ^    │   │         │    1    │   2     │   3     │    \    │
     &kp DLLR  &kp HASH  &kp LBKT  &kp RBKT  &kp CARET    &kp KP_DOT &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp BSLH
 // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
 //                     │         │         │  HELD_  │   │(KP_0, 3)│    _    │         │
-                          &none     &none     &trans      &kp KP_N0 &kp UNDER   &none
+                          &trans    &trans    &trans      &kp KP_N0 &kp UNDER  &trans
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
       >;
     };
@@ -121,8 +121,8 @@
 // │    F9   │   F10   │   F11   │   F12   │   ::    │   │         │  PgDn   │   PgUp  │         │    |    │
      &kp F9    &kp F10   &kp F11   &kp F12    &none         &none   &kp PG_DN &kp PG_UP   &none   &kp PIPE
 // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-//                     │         │         │(none, 3)│   │  _HELD  │         │         │
-                          &none     &none     &none        &trans     &none     &none
+//                     │         │         │(BSPC, 3)│   │  _HELD  │         │         │
+                          &trans   &trans    &none          &trans    &trans    &trans
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
       >;
     };
@@ -130,17 +130,17 @@
     label = "Adjust";
       bindings = <
 // ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
-// │    ¡    │         │    É    │         │         │   │         │    Ú    │    Í    │    Ó    │  PRINT  │
+// │    ¡    │         │    É    │         │         │   │  PRTSC  │    Ú    │    Í    │    Ó    │  PAUSE  │
       &none     &none     &none     &none     &none         &none     &none     &none     &none     &none
 // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
 // │    Á    │         │         │         │         │   │  PREV   │  VolDn  │  VolUp  │  NEXT   │  PLAY   │
       &none     &none     &none     &none     &none         &none     &none     &none     &none     &none
 // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │         │         │         │         │         │   │         │  MUTE   │    °    │         │    ¿    │
+// │  BT 1   │  BT 2   │   BT 3  │ BT NXT  │ BT PRV  │   │    Ñ    │  MUTE   │    °    │         │    ¿    │
       &none     &none     &none     &none     &none         &none     &none     &none     &none     &none
 // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
 //                     │         │         │  HELD_  │   │  _HELD  │         │         │
-                          &none     &none     &trans         &trans   &none   &none
+                          &trans    &trans    &trans        &trans    &trans    &trans
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
       >;
     };

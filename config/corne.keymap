@@ -120,7 +120,7 @@
     bindings = <
 // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
 // │     ¡     │           │     É     │           │           │   │   PRTSC   │     Ú     │     Í     │     Ó     │   PAUSE   │
-       &i_excl    &none       &acnt_e      &none       &none           &none      &acnt_u     &acnt_i     &acnt_o      &none
+      &i_excl      &none      &acnt_e      &none       &none           &none      &acnt_u     &acnt_i     &acnt_o      &none
 // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
 // │     Á     │           │           │           │           │   │   PREV    │   VolDn   │   VolUp   │   NEXT    │   PLAY    │
       &acnt_a      &none       &none       &none       &none           &none       &none       &none       &none       &none
@@ -298,7 +298,7 @@
                 <&kp EQUAL>;
         };
 
-        // ACCENT LETTERS
+        // SPANISH LETTERS
         l_a: acnt_a { // á
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -490,8 +490,8 @@
                 <&macro_release>,
                 <&kp LEFT_ALT>;
         };
-    };
 
+        // OTHER
         dgree: degree { // °
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;

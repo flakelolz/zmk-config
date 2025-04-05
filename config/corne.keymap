@@ -10,7 +10,7 @@
 
 
 // #include "keys/36.h"
-#include "includes/macros.dtsi"
+// #include "includes/macros.dtsi"
 // #include "includes/combos.dtsi"
 // #include "includes/behaviors.dtsi"
 
@@ -120,13 +120,13 @@
     bindings = <
 // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
 // │     ¡     │           │     É     │           │           │   │   PRTSC   │     Ú     │     Í     │     Ó     │   PAUSE   │
-       &none      &none        &none       &none       &none           &none       &none       &none       &none       &none
+       &i_excl    &none       &acnt_e      &none       &none           &none      &acnt_u     &acnt_i     &acnt_o      &none
 // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
 // │     Á     │           │           │           │           │   │   PREV    │   VolDn   │   VolUp   │   NEXT    │   PLAY    │
-       &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
+      &acnt_a      &none       &none       &none       &none           &none       &none       &none       &none       &none
 // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
-// │   BT 1    │   BT 2    │   BT 3    │   BT NXT  │   BT PRV  │   │     Ñ     │   MUTE    │     °     │           │     ¿     │
-       &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
+// │   BT 1    │   BT 2    │   BT 3    │   BT NXT  │   BT PRV  │   │     Ñ     │   MUTE    │           │     °     │     ¿     │
+       &none       &none       &none       &none       &none           &ene        &none       &none      &dgree      &i_qmrk
 // ╰───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────╯
 //                         │           │           │   HELD_   │   │   _HELD   │           │           │
                                &trans      &trans     &trans           &trans      &trans      &trans
@@ -149,6 +149,7 @@
 
 / {
     behaviors {
+        // Tap Dance
         arrw_td: arrow_tap_dance {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -169,6 +170,55 @@
             tapping-term-ms = <200>;
             bindings = <&f_arrw>, <&wlrus>;
         };
+    };
+    
+    // Accent letters
+    acnt_a: accent_a {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&l_a>, <&u_a>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+    acnt_e: accent_e {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&l_e>, <&u_e>;
+
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    acnt_i: accent_i {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&l_i>, <&u_i>;
+
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    acnt_o: accent_o {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&l_o>, <&u_o>;
+
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    acnt_u: accent_u {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&l_u>, <&u_u>;
+
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    ene: ene {
+        compatible = "zmk,behavior-mod-morph";
+        bindings = <&l_n>, <&u_n>;
+
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 };
 
@@ -236,7 +286,7 @@
         };
 
         // ACCENT LETTERS
-        lwr_acnt_a: acnt_a { // á
+        l_a: acnt_a { // á
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -402,6 +452,43 @@
                 <&kp LEFT_ALT>;
 
             label = "UPR_ENE";
+        };
+
+        i_excl: inv_excl { // ¡
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+        };
+
+        i_qmrk: inv_qmrk { // ¿
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_1>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+        };
+    };
+
+        dgree: degree { // °
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_7 &kp KP_NUMBER_6>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
         };
     };
 };

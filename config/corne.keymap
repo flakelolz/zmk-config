@@ -71,8 +71,8 @@
 // │      Q      │      W      │      E      │      R      │      T      │   │      Y      │      U      │      I      │      O      │      P      │
       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │  (LGUI, A)  │  (LSHFT, S) │  (LCTRL, D) │  (LALT, F)  │      G      │   │      H      │  (RALT, J)  │ (RCTRL, K)  │ (RSHFT, L)  │  (RGUI, ;)  │
-     &hml LGUI A  &hml LSHFT S  &hml LCTRL D  &hml LALT F     &kp G             &kp H       &hmr RALT J   &hmr RCTRL K  &hmr RSHFT L  &hmr RGUI SEMI
+// │  (LMETA, A) │  (LSHFT, S) │  (LCTRL, D) │  (LALT, F)  │      G      │   │      H      │  (RALT, J)  │ (RCTRL, K)  │ (RSHFT, L)  │  (RMETA, ;) │
+    &hml LMETA A  &hml LSHFT S  &hml LCTRL D  &hml LALT F     &kp G             &kp H       &hmr RALT J   &hmr RCTRL K  &hmr RSHFT L &hmr RMETA SEMI
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH

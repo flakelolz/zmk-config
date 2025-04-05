@@ -148,6 +148,18 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_u {
+            timeout-ms = <50>;
+            layers = <3>;
+            key-positions = <6 7>;
+            bindings = <&umlt_u>;
+        };
+    };
+}; 
+
+/ {
     behaviors {
         // Tap Dance
         arrw_td: arrow_tap_dance {
@@ -172,7 +184,7 @@
         };
     };
     
-    // Accent letters
+    // Mod Morph
     acnt_a: accent_a {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -207,6 +219,13 @@
         bindings = <&l_u>, <&u_u>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    
+    umlt_u: umlaut_u {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&l_um_u>, <&u_um_u>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    }
 
     ene: ene {
         compatible = "zmk,behavior-mod-morph";
@@ -375,7 +394,7 @@
                 <&macro_release>,
                 <&kp LEFT_ALT>;
         };
-        
+
         l_u: lwr_acnt_u { // ú
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -400,7 +419,31 @@
                 <&kp LEFT_ALT>;
         };
 
-        l_n: ene { // ñ
+        l_um_u: lwr_umlt_u { // ü
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_2>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+        };
+
+        u_um_u: upr_umlt_u { // Ü
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_0>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+        };
+
+        l_n: lwr_ene { // ñ
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =

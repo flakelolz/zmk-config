@@ -177,7 +177,6 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&l_a>, <&u_a>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -185,7 +184,6 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_e>, <&u_e>;
-
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
@@ -193,7 +191,6 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_i>, <&u_i>;
-
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
@@ -201,7 +198,6 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_o>, <&u_o>;
-
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
@@ -209,15 +205,13 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_u>, <&u_u>;
-
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
     ene: ene {
         compatible = "zmk,behavior-mod-morph";
-        bindings = <&l_n>, <&u_n>;
-
         #binding-cells = <0>;
+        bindings = <&l_n>, <&u_n>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 };
@@ -296,8 +290,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_0>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "ACNT_A";
         };
 
         u_a: upr_acnt_a { // Á
@@ -310,8 +302,6 @@
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_3>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "UPR_ACNT_A";
         };
         
         l_e: lwr_acnt_e { // é
@@ -324,8 +314,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_3 &kp KP_NUMBER_0>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "LWR_ACNT_E";
         };
         
         u_e: upr_acnt_e { // É
@@ -338,8 +326,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_4 &kp KP_NUMBER_4>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "UPR_ACNT_E";
         };
         
         l_i: lwr_acnt_i { // í
@@ -352,8 +338,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "LWR_ACNT_I";
         };
 
         u_i: upr_acnt_i { // Í
@@ -366,8 +350,6 @@
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_0 &kp KP_NUMBER_5>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "UPR_ACNT_I";
         }
 
         l_o: lwr_acnt_o { // ó
@@ -380,8 +362,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_2>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "LWR_ACNT_O";
         };
 
         u_o: upr_acnt_o { // Ó
@@ -394,8 +374,6 @@
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_1>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "UPR_ACNT_O";
         };
         
         l_u: lwr_acnt_u { // ú
@@ -408,8 +386,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_3>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "LWR_ACNT_U";
         };
 
         u_u: upr_acnt_u { // Ú
@@ -422,8 +398,6 @@
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_8>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "UPR_ACNT_U";
         };
 
         l_n: ene { // ñ
@@ -436,8 +410,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_4>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "ENE";
         };
 
         u_n: upr_ene { // Ñ
@@ -450,8 +422,6 @@
                 <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_5>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-
-            label = "UPR_ENE";
         };
 
         i_excl: inv_excl { // ¡

@@ -7,6 +7,7 @@
 #define LOWER     1
 #define RAISE     2
 #define ADJUST    3
+#define LHAND     4
 
 #include "keys/36.h"
 // #include "includes/macros.dtsi"
@@ -42,14 +43,14 @@
 // │      Q      │      W      │      E      │      R      │      T      │   │      Y      │      U      │      I      │      O      │      P      │
       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │  (LMETA, A) │  (LSHFT, S) │  (LCTRL, D) │  (LALT, F)  │      G      │   │      H      │  (RALT, J)  │ (RCTRL, K)  │ (RSHFT, L)  │  (RMETA, ;) │
-    &hml LMETA A  &hml LSHFT S  &hml LCTRL D  &hml LALT F     &kp G             &kp H       &hmr RALT J   &hmr RCTRL K  &hmr RSHFT L &hmr RMETA SEMI
+// │  (LCTRL, A) │  (LSHFT, S) │  (LMETA, D) │  (LALT, F)  │      G      │   │      H      │  (RALT, J)  │ (RMETA, K)  │ (RSHFT, L)  │  (RCTRL, ;) │
+    &hml LCTRL A  &hml LSHFT S  &hml LMETA D  &hml LALT F     &kp G             &kp H       &hmr RALT J   &hmr RMETA K  &hmr RSHFT L &hmr RCTRL SEMI
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │(LSHFT, TAB) │      ESC    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │(RCTRL, DEL) │
-                                &tm LSHFT TAB   &kp ESC    &lt LOWER BSPC     &lt RAISE RET &kp SPACE     &tm RCTRL DEL
+//                             │  (4, TAB)   │      ESC    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │ MAGIC SHIFT │
+                                &lt LHAND TAB   &kp ESC    &lt LOWER BSPC     &lt RAISE RET &kp SPACE       &kp RSHFT
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -88,11 +89,12 @@
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │      Pg_Dn  │      Pg_Up  │             │      |      │
       &kp F9       &kp F10       &kp F11       &kp F12        &wlrus_td           &none       &kp PG_DN     &kp PG_UP       &none       &kp PIPE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │             │   │    _HELD    │             │             │
-                                   &trans        &trans         &trans             &trans        &trans        &trans
+//                             │             │             │     DEL     │   │    _HELD    │             │             │
+                                   &trans        &trans      &kp DEL               &trans        &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
+
     adjust_layer { // layer 3 (adjust)
     label = "Adjust";
     bindings = <
@@ -106,6 +108,26 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │   │             │    MUTE     │             │      °      │      ¿      │
     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV            &none      &kp C_MUTE       &none        &dgree        &i_qmrk
+// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+//                             │             │             │    HELD_    │   │    _HELD    │             │             │
+                                    &trans       &trans        &trans             &trans       &trans         &trans
+//                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
+      >;
+    };
+
+    lhand_layer { // layer 4 (left hand)
+    label = "Left Hand";
+    bindings = <
+
+// ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
+// │             │             │             │             │             │   │             │             │             │             │             │
+        &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+// │             │             │             │             │             │   │             │             │             │             │             │
+        &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+// │             │             │             │             │             │   │             │             │             │             │             │
+        &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │    HELD_    │   │    _HELD    │             │             │
                                     &trans       &trans        &trans             &trans       &trans         &trans

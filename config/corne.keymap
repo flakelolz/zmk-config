@@ -96,7 +96,7 @@
 // │      $      │      #      │      [      │      ]      │      ^      │   │      .      │      1      │      2      │      3      │      \      │
       &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp CARET        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3      &kp BSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │    HELD_    │   │  (3, KP_0)  │      _      │             │
+//                             │             │             │    HELD_    │   │      0      │      _      │             │
                                    &trans        &trans         &trans          &kp KP_N0     &kp UNDER      &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
@@ -115,8 +115,8 @@
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │      Pg_Dn  │      Pg_Up  │             │      |      │
       &kp F9       &kp F10       &kp F11       &kp F12        &wlrus_td           &none       &kp PG_DN     &kp PG_UP       &none       &kp PIPE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │  (3, BSPC)  │   │    _HELD    │             │             │
-                                   &trans        &trans         &none             &trans        &trans        &trans
+//                             │             │             │             │   │    _HELD    │             │             │
+                                   &trans        &trans         &trans             &trans        &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -127,8 +127,8 @@
 // │      ¡      │             │      É      │             │             │   │    PRNTSC   │      Ú      │      Í      │      Ó      │    PAUSE    │
        &i_excl        &none        &acnt_e        &none         &none          &kp PSCRN       &acnt_u       &acnt_i       &acnt_o    &kp PAUSE_BREAK
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      Á      │             │             │             │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
-       &acnt_a        &none         &none         &none         &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
+// │             │             │             │             │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
+        &none         &none         &none         &none         &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │   │      Ñ      │    MUTE     │             │      °      │      ¿      │
     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV            &ene       &kp C_MUTE       &none        &dgree        &i_qmrk
@@ -180,12 +180,12 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <280>;                        // repeat on tap-into-hold
+            tapping-term-ms = <280>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            // global-quick-tap-ms = <150>;                 // requires PR #1387
+            // global-quick-tap-ms = <150>;                         // requires PR #1387
             global-quick-tap;
             hold-trigger-key-positions = <RIGHT_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;                        // requires PR #1423
+            hold-trigger-on-release;                                // requires PR #1423
 
         };
         hmr: homerow_mods_right {
@@ -194,12 +194,12 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <280>;                        // repeat on tap-into-hold
+            tapping-term-ms = <280>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            // global-quick-tap-ms = <150>;                 // requires PR #1387
+            // global-quick-tap-ms = <150>;                         // requires PR #1387
             global-quick-tap;
             hold-trigger-key-positions = <LEFT_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;                        // requires PR #1423
+            hold-trigger-on-release;                                // requires PR #1423
 
         };
         tm: thumb_mods {
@@ -208,9 +208,9 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <200>;                        // repeat on tap-into-hold
+            tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            retro-tap;                                      // use tap when key is used without another key
+            retro-tap;                                              // use tap when key is used without another key
         };
     
         // Tap Dance
@@ -237,12 +237,26 @@
     };
     
     // Mod Morph
+    mrph_a: mod_morph_a {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp A>, <&acnt_a>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    }
+
     acnt_a: accent_a {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&l_a>, <&u_a>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&l_a>, <&u_a>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    mrph_e: mod_morph_e {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp E>, <&acnt_e>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    }
 
     acnt_e: accent_e {
         compatible = "zmk,behavior-mod-morph";
@@ -251,12 +265,26 @@
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
+    mrph_i: mod_morph_i {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp I>, <&acnt_i>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    }
+
     acnt_i: accent_i {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_i>, <&u_i>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+
+    mrph_o: mod_morph_o {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp O>, <&acnt_o>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    }
 
     acnt_o: accent_o {
         compatible = "zmk,behavior-mod-morph";
@@ -265,18 +293,39 @@
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
+    mrph_u: mod_morph_u {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp U>, <&acnt_u>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    }
+
     acnt_u: accent_u {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_u>, <&u_u>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    
+
+    // mrph_umlt_u: mod_morph_umlaut {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&combo_umlt_u>, <&umlaut_u>;
+    //     mods = <(MOD_LALT|MOD_RALT)>;
+    // }
+
     umlt_u: umlaut_u {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_um_u>, <&u_um_u>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
+    }
+
+    mrph_ene: mod_morph_ene {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp N>, <&ene>;
+        mods = <(MOD_LALT|MOD_RALT)>;
     }
 
     ene: ene {

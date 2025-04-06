@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 // layers
-#define DEF       0
+#define BASE      0
 #define LOWER     1
 #define RAISE     2
 #define ADJUST    3
@@ -20,41 +20,11 @@
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
 //                          ╰caps_word on double tap, not sure if I like it yet
 
-// Layer switching
-// #define SECLTHMB  &ltsk  MEDIA    LSHIFT  // tap for sticky shift : hold for media layer
-// #define PRMLTHMB  &ltr   NUM      0      //  zero here because key-repeat does not take arguments
-// #define TERLTHMB  &mt    LSHIFT   TAB   //   tap for tab : hold for shift
-
-// #define TERRTHMB  &lt    NAV      SPACE
-// #define PRMRTHMB  &mt    RC(BSPC) BSPC   // tap gives you backspace : long tap gives you delete word
-// #define SECRTHMB  &ltsk  FUN      RCTRL //  tap for sticky ctrl : hold for function layer
-
-// shorter codes
-// #define BPSTE    &kp  K_PASTE
-// #define BCPY     &kp  K_COPY
-// #define BCUT     &kp  K_CUT
-// #define BUNDO    &kp  K_UNDO
-// #define BREDO    &kp  K_REDO
-// #define BPREV    &kp  K_PREV
-// #define BNEXT    &kp  K_NEXT
-// #define BPLYPSE  &kp  K_PP
-// #define BMUTE    &kp  K_MUTE
-// #define BSTOP    &kp  K_STOP2
-// #define BVOLD    &kp  K_VOL_DN
-// #define BVOLU    &kp  K_VOL_UP
-// #define OUTTOG   &out OUT_TOG // toggle keyboard output bluetooth/usb
-// #define ___      &trans      //  transparent
-// #define _x_      &none
-
-// Home row mods
-// #define HRML(k1, k2, k3, k4) &hml LSHFT k1 &hml LCTRL k2 &hml LALT  k3 &hml LGUI  k4
-// #define HRMR(k1, k2, k3, k4) &hmr RGUI  k1 &hmr RALT  k2 &hmr RCTRL k3 &hmr RSHFT k4
-
 &lt {  // layer-tap config
   flavor = "balanced";
   tapping-term-ms = <200>;
   quick-tap-ms = <175>;
-}; 
+};
 
 / {
   // 5x3 Layout
@@ -64,9 +34,10 @@
 
   keymap {
     compatible = "zmk,keymap";
-    default_layer { // layer 0 (default)
+    base_layer { // layer 0 (base)
     label = "Base";
     bindings = <
+
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      Q      │      W      │      E      │      R      │      T      │   │      Y      │      U      │      I      │      O      │      P      │
       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
@@ -77,15 +48,16 @@
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │(LSHFT, DEL) │      ESC    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │(RCTRL, TAB) │
-                                &tm LSHFT DEL   &kp ESC    &lt LOWER BSPC     &lt RAISE RET &kp SPACE     &tm RCTRL TAB
+//                             │(LSHFT, TAB) │      ESC    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │(RCTRL, DEL) │
+                                &tm LSHFT TAB   &kp ESC    &lt LOWER BSPC     &lt RAISE RET &kp SPACE     &tm RCTRL DEL
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
-    
+
     lower_layer { // layer 1 (lower)
     label = "Lower";
     bindings = <
+
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      !      │      @      │      {      │      }      │      %      │   │      -      │      7      │      8      │      9      │      '      │
       &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp PRCNT        &kp KP_MINUS   &kp KP_N7     &kp KP_N8     &kp KP_N9      &kp SQT
@@ -105,6 +77,7 @@
     raised_layer { // layer 2 (raised)
     label = "Raised";
     bindings = <
+
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      F1     │      F2     │      F3     │      F4     │             │   │      HOME   │      DEL    │      INS    │      END    │      ~      │
       &kp F1        &kp F2        &kp F3        &kp F4        &pipe_td          &kp HOME      &kp DEL       &kp INS       &kp END       &kp TILDE
@@ -123,6 +96,7 @@
     adjust_layer { // layer 3 (adjust)
     label = "Adjust";
     bindings = <
+
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      ¡      │             │             │             │             │   │    PRNTSC   │             │             │             │    PAUSE    │
        &i_excl        &none         &none         &none         &none          &kp PSCRN        &none         &none         &none    &kp PAUSE_BREAK
@@ -140,9 +114,7 @@
     };
   };
 
-  
-
-  // Condition to enter adjust layer
+  // Condition to enter the adjust layer (layer 3)
   conditional_layers {
       compatible = "zmk,conditional-layers";
       tri_layer {
@@ -157,7 +129,7 @@
         compatible = "zmk,combos";
         combo_umlt_u {
             timeout-ms = <50>;
-            layers = <3>;
+            layers = <0>;
             key-positions = <6 7>;
             bindings = <&umlt_u>;
         };
@@ -169,7 +141,7 @@
             bindings = <&bt BT_CLR>;
         };
     };
-}; 
+};
 
 / {
     behaviors {
@@ -186,8 +158,8 @@
             global-quick-tap;
             hold-trigger-key-positions = <RIGHT_KEYS THUMB_KEYS>;
             hold-trigger-on-release;                                // requires PR #1423
-
         };
+
         hmr: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_RIGHT";
@@ -200,8 +172,8 @@
             global-quick-tap;
             hold-trigger-key-positions = <LEFT_KEYS THUMB_KEYS>;
             hold-trigger-on-release;                                // requires PR #1423
-
         };
+
         tm: thumb_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "THUMB_MODS";
@@ -358,7 +330,7 @@
                 <&macro_tap>,
                 <&kp MINUS>;
         };
-        
+
         f_arrw: fat_arrow { // =>
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;

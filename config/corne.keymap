@@ -60,16 +60,16 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      !      │      @      │      {      │      }      │      %      │   │      -      │      7      │      8      │      9      │      '      │
-      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp PRCNT        &kp KP_MINUS   &kp KP_N7     &kp KP_N8     &kp KP_N9      &kp SQT
+// │      !      │      @      │      {      │      }      │      %      │   │      -      │      7      │      8      │      9      │      \      │
+      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp PRCNT        &kp KP_MINUS   &kp KP_N7     &kp KP_N8     &kp KP_N9      &kp BSLH
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      =      │      &      │      (      │      )      │      *      │   │      +      │      4      │      5      │      6      │      "      │
-      &kp EQUAL     &kp AMPS      &kp LPAR      &kp RPAR      &kp STAR         &kp KP_PLUS    &kp KP_N4     &kp KP_N5     &kp KP_N6      &kp DQT
+// │      =      │      &      │      (      │      )      │      *      │   │      +      │      4      │      5      │      6      │      '      │
+      &kp EQUAL     &kp AMPS      &kp LPAR      &kp RPAR      &kp STAR         &kp KP_PLUS    &kp KP_N4     &kp KP_N5     &kp KP_N6      &kp APOS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      $      │      #      │      [      │      ]      │      ^      │   │      .      │      1      │      2      │      3      │      \      │
-      &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp CARET        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3      &kp BSLH
+// │      $      │      #      │      [      │      ]      │      ^      │   │      .      │      1      │      2      │      3      │      `      │
+      &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp CARET        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3      &kp GRAVE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │    HELD_    │   │      0      │      _      │             │
+//                             │             │             │    HELD_    │   │      0      │      _      │ MAGIC SHIFT │
                                    &trans        &trans         &trans          &kp KP_N0     &kp UNDER      &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
@@ -80,14 +80,14 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      F1     │      F2     │      F3     │      F4     │             │   │      HOME   │      DEL    │      INS    │      END    │      ~      │
-      &kp F1        &kp F2        &kp F3        &kp F4        &pipe_td          &kp HOME      &kp DEL       &kp INS       &kp END       &kp TILDE
+// │      F1     │      F2     │      F3     │      F4     │             │   │      HOME   │      DEL    │      INS    │      END    │             │
+      &kp F1        &kp F2        &kp F3        &kp F4        &pipe_td          &kp HOME      &kp DEL       &kp INS       &kp END         &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │      '      │
-      &kp F5        &kp F6        &kp F7        &kp F8        &arrw_td           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp GRAVE
+// │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │             │
+      &kp F5        &kp F6        &kp F7        &kp F8        &arrw_td           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      F9     │     F10     │     F11     │     F12     │             │   │             │      Pg_Dn  │      Pg_Up  │             │      |      │
-      &kp F9       &kp F10       &kp F11       &kp F12        &wlrus_td           &none       &kp PG_DN     &kp PG_UP       &none       &kp PIPE
+// │      F9     │     F10     │     F11     │     F12     │             │   │             │      Pg_Dn  │      Pg_Up  │             │             │
+      &kp F9       &kp F10       &kp F11       &kp F12        &wlrus_td           &none       &kp PG_DN     &kp PG_UP       &none         &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │     DEL     │   │    _HELD    │             │             │
                                    &trans        &trans      &kp DEL               &trans        &trans        &trans

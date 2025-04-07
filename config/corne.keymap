@@ -81,13 +81,13 @@
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      F1     │      F2     │      F3     │      F4     │             │   │      HOME   │      DEL    │      INS    │      END    │             │
-      &kp F1        &kp F2        &kp F3        &kp F4        &pipe_td          &kp HOME      &kp DEL       &kp INS       &kp END         &none
+      &kp F1        &kp F2        &kp F3        &kp F4        &b_pipe           &kp HOME      &kp DEL       &kp INS       &kp END         &pipe
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │             │
-      &kp F5        &kp F6        &kp F7        &kp F8        &arrw_td           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &none
+      &kp F5        &kp F6        &kp F7        &kp F8        &s_arrw            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &f_arrw
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │      Pg_Dn  │      Pg_Up  │             │             │
-      &kp F9       &kp F10       &kp F11       &kp F12        &wlrus_td           &none       &kp PG_DN     &kp PG_UP       &none         &none
+      &kp F9       &kp F10       &kp F11       &kp F12        &b_arrw             &none       &kp PG_DN     &kp PG_UP       &none         &wlrus
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │     DEL     │   │    _HELD    │             │             │
                                    &trans        &trans      &kp DEL               &trans        &trans        &trans
@@ -129,7 +129,7 @@
 // │             │             │             │             │             │   │             │             │             │             │             │
         &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │    HELD_    │   │    _HELD    │             │             │
+//                             │     HELD_   │             │             │   │             │             │             │
                                     &trans       &trans        &trans             &trans       &trans         &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
@@ -212,7 +212,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&s_arrw>, <&b_arrow>;
+            bindings = <&s_arrw>, <&b_arrw>;
         };
 
         pipe_td: pipe_tap_dance {

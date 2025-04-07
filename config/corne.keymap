@@ -144,12 +144,12 @@
 / {
     combos {
         compatible = "zmk,combos";
-        // combo_umlt_u {
-        //     timeout-ms = <50>;
-        //     layers = <0>;
-        //     key-positions = <6 7>;
-        //     bindings = <&umlt_u>;
-        // };
+        combo_umlt_u {
+            timeout-ms = <50>;
+            layers = <0>;
+            key-positions = <6 7>;
+            bindings = <&umlt_u>;
+        };
 
         combo_bt_clr {
             timeout-ms = <50>;
@@ -198,30 +198,30 @@
             quick-tap-ms = <175>;
             retro-tap;                                              // use tap when key is used without another key
         };
-    
+
         // Tap Dance
-        arrw_td: arrow_tap_dance {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&s_arrw>, <&b_arrw>;
-        };
-
-        pipe_td: pipe_tap_dance {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&pipe>, <&b_pipe>;
-        };
-
-        wlrus_td: wallrus_tap_dance {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&f_arrw>, <&wlrus>;
-        };
+        // arrw_td: arrow_tap_dance {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     #binding-cells = <0>;
+        //     tapping-term-ms = <200>;
+        //     bindings = <&s_arrw>, <&b_arrw>;
+        // };
+        //
+        // pipe_td: pipe_tap_dance {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     #binding-cells = <0>;
+        //     tapping-term-ms = <200>;
+        //     bindings = <&pipe>, <&b_pipe>;
+        // };
+        //
+        // wlrus_td: wallrus_tap_dance {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     #binding-cells = <0>;
+        //     tapping-term-ms = <200>;
+        //     bindings = <&f_arrw>, <&wlrus>;
+        // };
     };
-    
+
     // Mod Morph
     mrph_a: mod_morph_a {
         compatible = "zmk,behavior-mod-morph";
@@ -293,19 +293,19 @@
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    // mrph_umlt_u: mod_morph_umlaut {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&combo_umlt_u>, <&umlaut_u>;
-    //     mods = <(MOD_LALT|MOD_RALT)>;
-    // };
-    //
-    // umlt_u: umlaut_u {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_um_u>, <&u_um_u>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
+    mrph_umlt_u: mod_morph_umlaut {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&combo_umlt_u>, <&umlt_u>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+
+    umlt_u: umlaut_u {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&l_um_u>, <&u_um_u>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
 
     mrph_ene: mod_morph_ene {
         compatible = "zmk,behavior-mod-morph";
@@ -409,7 +409,7 @@
                 <&macro_release>,
                 <&kp LEFT_ALT>;
         };
-        
+
         l_e: lwr_acnt_e { // é
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -421,7 +421,7 @@
                 <&macro_release>,
                 <&kp LEFT_ALT>;
         };
-        
+
         u_e: upr_acnt_e { // É
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -433,7 +433,7 @@
                 <&macro_release>,
                 <&kp LEFT_ALT>;
         };
-        
+
         l_i: lwr_acnt_i { // í
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;

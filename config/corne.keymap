@@ -36,7 +36,6 @@
   keymap {
     compatible = "zmk,keymap";
     base_layer { // layer 0 (base)
-    label = "Base";
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
@@ -56,7 +55,6 @@
     };
 
     lower_layer { // layer 1 (lower)
-    label = "Lower";
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
@@ -76,7 +74,6 @@
     };
 
     raised_layer { // layer 2 (raised)
-    label = "Raised";
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
@@ -96,7 +93,6 @@
     };
 
     adjust_layer { // layer 3 (adjust)
-    label = "Adjust";
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
@@ -116,7 +112,6 @@
     };
 
     lhand_layer { // layer 4 (left hand)
-    label = "Left Hand";
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
@@ -170,7 +165,6 @@
         // Timer-less HomeRow Mods
         hml: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
@@ -184,7 +178,6 @@
 
         hmr: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RIGHT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
@@ -198,7 +191,6 @@
 
         tm: thumb_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "THUMB_MODS";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";

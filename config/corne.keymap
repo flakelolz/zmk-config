@@ -236,7 +236,7 @@
         #binding-cells = <0>;
         bindings = <&kp A>, <&acnt_a>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    }
+    };
 
     acnt_a: accent_a {
         compatible = "zmk,behavior-mod-morph";
@@ -250,7 +250,7 @@
         #binding-cells = <0>;
         bindings = <&kp E>, <&acnt_e>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    }
+    };
 
     acnt_e: accent_e {
         compatible = "zmk,behavior-mod-morph";
@@ -264,7 +264,7 @@
         #binding-cells = <0>;
         bindings = <&kp I>, <&acnt_i>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    }
+    };
 
     acnt_i: accent_i {
         compatible = "zmk,behavior-mod-morph";
@@ -278,7 +278,7 @@
         #binding-cells = <0>;
         bindings = <&kp O>, <&acnt_o>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    }
+    };
 
     acnt_o: accent_o {
         compatible = "zmk,behavior-mod-morph";
@@ -292,7 +292,7 @@
         #binding-cells = <0>;
         bindings = <&kp U>, <&acnt_u>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    }
+    };
 
     acnt_u: accent_u {
         compatible = "zmk,behavior-mod-morph";
@@ -306,21 +306,21 @@
         #binding-cells = <0>;
         bindings = <&combo_umlt_u>, <&umlaut_u>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    }
+    };
 
     umlt_u: umlaut_u {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_um_u>, <&u_um_u>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
-    }
+    };
 
     mrph_ene: mod_morph_ene {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp N>, <&ene>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    }
+    };
 
     ene: ene {
         compatible = "zmk,behavior-mod-morph";
@@ -464,7 +464,7 @@
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_0 &kp KP_NUMBER_5>,
                 <&macro_release>,
                 <&kp LEFT_ALT>;
-        }
+        };
 
         l_o: lwr_acnt_o { // ó
             compatible = "zmk,behavior-macro";

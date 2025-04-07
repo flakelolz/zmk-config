@@ -77,17 +77,17 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      F1     │      F2     │      F3     │      F4     │             │   │      HOME   │      Pg_Dn  │      Pg_Up  │      END    │             │
-      &kp F1        &kp F2        &kp F3        &kp F4        &b_pipe           &kp HOME      &kp PG_DN     &kp PG_UP     &kp END         &pipe
+// │      F1     │      F2     │      F3     │      F4     │             │   │      HOME   │      Pg_Dn  │      Pg_Up  │      END    │ PRNT SCREEN │
+      &kp F1        &kp F2        &kp F3        &kp F4          &none           &kp HOME      &kp PG_DN     &kp PG_UP     &kp END      &kp PSCRN
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │             │
-      &kp F5        &kp F6        &kp F7        &kp F8        &s_arrw            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &f_arrw
+      &kp F5        &kp F6        &kp F7        &kp F8          &none           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT       &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │             │             │
-      &kp F9       &kp F10       &kp F11       &kp F12        &b_arrw             &none         &none         &none         &none         &wlrus
+      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none         &none         &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │             │   │    _HELD    │             │             │
-                                   &trans        &trans        &trans              &trans        &trans        &trans
+                                   &trans        &trans        &trans             &trans        &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -96,8 +96,8 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      ¡      │             │             │             │             │   │    PRNTSC   │             │             │             │    PAUSE    │
-       &i_excl        &none         &none         &none         &none          &kp PSCRN        &none         &none         &none    &kp PAUSE_BREAK
+// │      ¡      │             │             │             │             │   │             │             │             │             │    PAUSE    │
+       &i_excl        &none         &none         &none         &none             &none         &none         &none         &none    &kp PAUSE_BREAK
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │             │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
         &none         &none         &none         &none         &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
@@ -144,12 +144,12 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_umlt_u {
-            timeout-ms = <50>;
-            layers = <0>;
-            key-positions = <6 7>;
-            bindings = <&umlt_u>;
-        };
+        // combo_umlt_u {
+        //     timeout-ms = <50>;
+        //     layers = <0>;
+        //     key-positions = <6 7>;
+        //     bindings = <&umlt_u>;
+        // };
 
         combo_bt_clr {
             timeout-ms = <50>;
@@ -227,14 +227,14 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp BSPC>, <&kp DEL>;
-        mods = <(MOD_LALT|MOD_RALT)>;
+        mods = <MOD_LALT>;
     };
 
     mrph_ins: mod_morph_ins {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp RET>, <&kp INS>;
-        mods = <(MOD_LALT|MOD_RALT)>;
+        mods = <MOD_LALT>;
     };
 
     mrph_a: mod_morph_a {
@@ -339,65 +339,65 @@
 / {
     macros {
         // PROGRAMMING SYNTAX
-        s_arrw: slim_arrow { // ->
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_tap>,
-                <&kp GREATER_THAN>;
-        };
+        // s_arrw: slim_arrow { // ->
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_tap>,
+        //         <&kp MINUS>,
+        //         <&macro_tap>,
+        //         <&kp GREATER_THAN>;
+        // };
 
-        b_arrw: back_arrow { // <-
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LESS_THAN>,
-                <&macro_tap>,
-                <&kp MINUS>;
-        };
+        // b_arrw: back_arrow { // <-
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_tap>,
+        //         <&kp LESS_THAN>,
+        //         <&macro_tap>,
+        //         <&kp MINUS>;
+        // };
 
-        f_arrw: fat_arrow { // =>
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp EQUAL>,
-                <&macro_tap>,
-                <&kp GREATER_THAN>;
-        };
+        // f_arrw: fat_arrow { // =>
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_tap>,
+        //         <&kp EQUAL>,
+        //         <&macro_tap>,
+        //         <&kp GREATER_THAN>;
+        // };
 
-        pipe: pipe_op { // |>
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp PIPE>,
-                <&macro_tap>,
-                <&kp GREATER_THAN>;
-        };
+        // pipe: pipe_op { // |>
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_tap>,
+        //         <&kp PIPE>,
+        //         <&macro_tap>,
+        //         <&kp GREATER_THAN>;
+        // };
 
-        b_pipe: back_pipe_op { // ~>
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp TILDE>,
-                <&macro_tap>,
-                <&kp GREATER_THAN>;
-        };
+        // b_pipe: back_pipe_op { // ~>
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_tap>,
+        //         <&kp TILDE>,
+        //         <&macro_tap>,
+        //         <&kp GREATER_THAN>;
+        // };
 
-        wlrus: wallrus { // :=
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp COLON>,
-                <&macro_tap>,
-                <&kp EQUAL>;
-        };
+        // wlrus: wallrus { // :=
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_tap>,
+        //         <&kp COLON>,
+        //         <&macro_tap>,
+        //         <&kp EQUAL>;
+        // };
 
         // SPANISH LETTERS
         l_a: acnt_a { // á

@@ -149,12 +149,12 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_umlt_u {
-            timeout-ms = <50>;
-            layers = <0>;
-            key-positions = <6 7>;
-            bindings = <&umlt_u>;
-        };
+        // combo_umlt_u {
+        //     timeout-ms = <50>;
+        //     layers = <0>;
+        //     key-positions = <6 7>;
+        //     bindings = <&umlt_u>;
+        // };
 
         combo_bt_clr {
             timeout-ms = <50>;
@@ -301,19 +301,19 @@
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    mrph_umlt_u: mod_morph_umlaut {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&combo_umlt_u>, <&umlaut_u>;
-        mods = <(MOD_LALT|MOD_RALT)>;
-    };
-
-    umlt_u: umlaut_u {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_um_u>, <&u_um_u>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
+    // mrph_umlt_u: mod_morph_umlaut {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&combo_umlt_u>, <&umlaut_u>;
+    //     mods = <(MOD_LALT|MOD_RALT)>;
+    // };
+    //
+    // umlt_u: umlaut_u {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_um_u>, <&u_um_u>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
 
     mrph_ene: mod_morph_ene {
         compatible = "zmk,behavior-mod-morph";

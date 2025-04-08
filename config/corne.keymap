@@ -118,11 +118,11 @@
 // │             │             │             │             │             │   │             │             │             │             │             │
         &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │             │             │   │             │             │             │             │             │
-        &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
+// │ SELECT ALL  │             │             │    FIND     │             │   │             │             │             │             │             │
+      &kp LC(A)       &none         &none       &kp LC(F)       &none             &none         &none         &none         &none         &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │             │             │   │             │             │             │             │             │
-        &none         &none         &none         &none         &none             &none         &none         &none         &none         &none
+// │             │             │   COPY      │   PASTE     │             │   │             │             │             │             │             │
+        &none         &none     &kp LC(C)      &kp LC(V)        &none             &none         &none         &none         &none         &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │     HELD_   │             │             │   │             │             │             │
                                     &trans       &trans        &trans             &trans       &trans         &trans

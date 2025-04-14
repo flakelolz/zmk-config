@@ -21,6 +21,8 @@
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
 //                          ╰caps_word on double tap, not sure if I like it yet
 
+// TODO: Learn how to configure the magic shift / smart shift behavior
+
 &lt {  // layer-tap config
   flavor = "balanced";
   tapping-term-ms = <200>;
@@ -96,14 +98,14 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      ¡      │             │             │             │             │   │             │             │             │             │    PAUSE    │
-       &i_excl        &none         &none         &none         &none             &none         &none         &none         &none    &kp PAUSE_BREAK
+// │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │   │             │             │             │             │    PAUSE    │
+    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV            &none         &none         &none         &none    &kp PAUSE_BREAK
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │             │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
         &none         &none         &none         &none         &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │   │             │    MUTE     │             │      °      │      ¿      │
-    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV            &none      &kp C_MUTE       &none        &dgree        &i_qmrk
+// │             │             │             │             │             │   │             │    MUTE     │             │      °      │      ¿      │
+        &none         &none         &none         &none         &none             &none      &kp C_MUTE       &none        &dgree        &i_qmrk
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │    HELD_    │   │    _HELD    │             │             │
                                     &trans       &trans        &trans             &trans       &trans         &trans
@@ -256,6 +258,13 @@
         #binding-cells = <0>;
         bindings = <&kp E>, <&acnt_e>;
         mods = <(MOD_LALT|MOD_RALT)>;
+    };
+
+    mrph_excl: mod_morph_excl {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <1>;
+        bindings = <&kp EXCL>, <&i_excl>;
+        mods = <MOD_LALT>;
     };
 
     acnt_e: accent_e {

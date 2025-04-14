@@ -239,6 +239,13 @@
         mods = <MOD_LALT>;
     };
 
+    mrph_excl: mod_morph_excl {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp EXCL>, <&i_excl>;
+        mods = <MOD_LALT>;
+    };
+
     mrph_a: mod_morph_a {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
@@ -258,13 +265,6 @@
         #binding-cells = <0>;
         bindings = <&kp E>, <&acnt_e>;
         mods = <(MOD_LALT|MOD_RALT)>;
-    };
-
-    mrph_excl: mod_morph_excl {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <1>;
-        bindings = <&kp EXCL>, <&i_excl>;
-        mods = <MOD_LALT>;
     };
 
     acnt_e: accent_e {

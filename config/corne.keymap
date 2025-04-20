@@ -253,14 +253,14 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp BSPC>, <&kp DEL>;
-        mods = <MOD_LALT>;
+        mods = <MOD_LSFT>;
     };
 
     entr_ins: entr_ins {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp RET>, <&kp INS>;
-        mods = <MOD_RALT>;
+        mods = <MOD_RSFT>;
     };
 
     acnt_a: accent_a {

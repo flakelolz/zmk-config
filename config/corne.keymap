@@ -55,7 +55,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │  (4, TAB)   │ MAGIC SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
-                                &lt LHAND TAB   &sk LSHFT   &lwr_bspc_del     &rse_entr_ins &kp SPACE       &kp ESC
+                                &lt LHAND TAB   &sk LSHFT  &lt_bspc LOWER    &lt_entr RAISE &kp SPACE       &kp ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -231,23 +231,23 @@
     // Mod Morph
 
 
-    lwr_bspc_del: lt_lwr_bspc_del {
+    lt_b: lt_bspc {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "balanced";
         tapping-term-ms = <200>;
         quick-tap-ms = <175>;
-        bindings = <&mo 1>, <&bspc_del>;
+        bindings = <&mo>, <&bspc_del>;
         display-name = "Layer-Tap";
     };
 
-    rse_entr_ins: lt_rse_entr_ins {
+    lt_entr: lt_entr {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "balanced";
         tapping-term-ms = <200>;
         quick-tap-ms = <175>;
-        bindings = <&mo 2>, <&entr_ins>;
+        bindings = <&mo>, <&entr_ins>;
         display-name = "Layer-Tap";
     };
 

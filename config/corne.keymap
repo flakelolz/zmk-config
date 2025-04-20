@@ -51,7 +51,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │  (4, TAB)   │ MAGIC SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
-                                &lt LHAND TAB   &sk RSHFT  &lt LOWER BSPC     &lt RAISE RET &kp SPACE       &kp ESC
+                                &lt LHAND TAB   &sk LSHFT  &lt LOWER BSPC     &lt RAISE RET &kp SPACE       &kp ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -98,14 +98,14 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      ¡      │             │      É      │             │             │   │             │      Ú      │      Í      │      Ó      │ PRNT SCREEN │
-        &i_excl       &none         &acnt_e       &none         &none             &none         &acnt_u       &acnt_i       &acnt_o    &kp PSCRN
+// │      ¡      │             │      É      │             │             │   │             │      Ú      │      Í      │      Ó      │             │
+        &i_excl       &none         &acnt_e       &none         &none             &none         &acnt_u       &acnt_i       &acnt_o       &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      Á      │             │             │             │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
-        &acnt_a       &none         &none         &none         &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
+// │      Á      │             │             │             │             │   │             │             │             │             │             │
+        &acnt_a       &none         &none         &none         &none             &none         &none         &none         &none         &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │             │ PAUSE BREAK │   │      Ñ      │    MUTE     │             │      °      │      ¿      │
-        &none         &none         &none         &none    &kp PAUSE_BREAK        &ene       &kp C_MUTE       &none        &dgree        &i_qmrk
+// │             │             │             │             │             │   │      Ñ      │             │             │      °      │      ¿      │
+        &none         &none         &none         &none         &none             &ene          &none         &none        &dgree        &i_qmrk
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │    HELD_    │   │    _HELD    │             │             │
                                     &trans       &trans        &trans             &trans       &trans         &trans
@@ -120,11 +120,11 @@
 // │             │             │             │             │             │   │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │
         &none         &none         &none         &none         &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │ SELECT ALL  │             │             │    FIND     │             │   │             │             │             │             │             │
-      &kp LC(A)       &none         &none       &kp LC(F)       &none             &none         &none         &none         &none         &none
+// │ SELECT ALL  │ SCREEN SHOT │             │    FIND     │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
+      &kp LC(A)   &kp LS(LG(S))     &none       &kp LC(F)       &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │   COPY      │   PASTE     │             │   │             │             │             │             │             │
-        &none         &none     &kp LC(C)      &kp LC(V)        &none             &none         &none         &none         &none         &none
+// │             │             │     COPY    │    PASTE    │             │   │             │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
+        &none         &none       &kp LC(C)     &kp LC(V)       &none             &none      &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │     HELD_   │             │             │   │             │             │             │
                                     &trans       &trans        &trans             &trans       &trans         &trans
@@ -155,8 +155,8 @@
 
         combo_bt_clr {
             timeout-ms = <50>;
-            layers = <3>;
-            key-positions = <23 24>;
+            layers = <4>;
+            key-positions = <8 9>;
             bindings = <&bt BT_CLR>;
         };
     };
@@ -229,14 +229,14 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp BSPC>, <&kp DEL>;
-        mods = <MOD_RALT>;
+        mods = <MOD_LALT>;
     };
 
     mrph_ins: mod_morph_ins {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp RET>, <&kp INS>;
-        mods = <MOD_LALT>;
+        mods = <MOD_RALT>;
     };
 
     acnt_a: accent_a {

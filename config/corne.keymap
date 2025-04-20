@@ -55,7 +55,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │  (4, TAB)   │ MAGIC SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
-                                &lt LHAND TAB   &sk LSHFT  &lt LOWER BSPC     &lt RAISE RET &kp SPACE       &kp ESC
+                                &lt LHAND TAB   &sk LSHFT  &lt LOWER &del    &lt RAISE &ins &kp SPACE       &kp ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -102,8 +102,8 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      ¡      │             │      É      │             │             │   │             │      Ú      │      Í      │      Ó      │             │
-        &i_excl       &none         &acnt_e       &none         &none             &none         &acnt_u       &acnt_i       &acnt_o       &none
+// │      ¡      │             │      É      │             │             │   │             │     Ú/Ü     │      Í      │      Ó      │             │
+        &i_excl       &none         &acnt_e       &none         &none             &none         &mod_u        &acnt_i       &acnt_o       &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      Á      │             │             │             │             │   │             │             │             │             │             │
         &acnt_a       &none         &none         &none         &none             &none         &none         &none         &none         &none
@@ -229,14 +229,14 @@
     };
 
     // Mod Morph
-    mrph_del: mod_morph_del {
+    del: mod_morph_del {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp BSPC>, <&kp DEL>;
         mods = <MOD_LALT>;
     };
 
-    mrph_ins: mod_morph_ins {
+    ins: mod_morph_ins {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp RET>, <&kp INS>;
@@ -281,14 +281,14 @@
     umlt_u: umlaut_u {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&l_u>, <&l_um_u>;
-        mods = <(MOD_LALT|MOD_RALT)>;
+        bindings = <&l_um_u>, <&u_um_u>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    umlt_up_u: umlaut_upper_u {
+    mod_u: mod_u {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&u_u>, <&u_um_u>;
+        bindings = <&acnt_u>, <&umlt_u>;
         mods = <(MOD_LALT|MOD_RALT)>;
     };
 

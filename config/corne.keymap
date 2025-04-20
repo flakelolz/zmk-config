@@ -55,7 +55,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │  (4, TAB)   │ MAGIC SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
-                                &lt LHAND TAB   &sk LSHFT  &lt LOWER bspc    &lt RAISE entr &kp SPACE       &kp ESC
+                                &lt LHAND TAB   &sk LSHFT   &ltb LOWER 0      &lte RAISE 0  &kp SPACE       &kp ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -226,6 +226,26 @@
         //     tapping-term-ms = <200>;
         //     bindings = <&f_arrw>, <&wlrus>;
         // };
+    };
+
+    ltb: ltb {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <175>;
+        bindings = <&mo>, <&bspc_del>;
+        display-name = "Layer-Tap";
+    };
+
+    lte: lte {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <175>;
+        bindings = <&mo>, <&entr_ins>;
+        display-name = "Layer-Tap";
     };
 
     // Mod Morph

@@ -231,7 +231,7 @@
     // Mod Morph
 
 
-    lt_b: lt_bspc {
+    lt_bspc: lt_bspc {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "balanced";

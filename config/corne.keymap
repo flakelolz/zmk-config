@@ -55,7 +55,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │  (4, TAB)   │ MAGIC SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
-                                &lt LHAND TAB   &sk LSHFT  &lt LOWER &del    &lt RAISE &ins &kp SPACE       &kp ESC
+                                &lt LHAND TAB   &sk LSHFT   &lwr_bspc_del     &rse_entr_ins &kp SPACE       &kp ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -229,14 +229,36 @@
     };
 
     // Mod Morph
-    del: mod_morph_del {
+
+
+    lwr_bspc_del: lt_lwr_bspc_del {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <175>;
+        bindings = <&mo 1>, <&bspc_del>;
+        display-name = "Layer-Tap";
+    };
+
+    rse_entr_ins: lt_rse_entr_ins {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <175>;
+        bindings = <&mo 2>, <&entr_ins>;
+        display-name = "Layer-Tap";
+    };
+
+    bspc_del: bspc_del {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp BSPC>, <&kp DEL>;
         mods = <MOD_LALT>;
     };
 
-    ins: mod_morph_ins {
+    entr_ins: entr_ins {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp RET>, <&kp INS>;

@@ -249,14 +249,14 @@
     };
 
     // Mod Morph
-    bspc: bspc_del {
+    bspc_del: bspc_del {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp BSPC>, <&kp DEL>;
         mods = <MOD_LALT>;
     };
 
-    entr: entr_ins {
+    entr_ins: entr_ins {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp RET>, <&kp INS>;

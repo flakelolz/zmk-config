@@ -23,6 +23,10 @@
 
 // TODO: Learn how to configure the magic shift / smart shift behavior
 
+&soft_off {
+    hold-time-ms = <5000>; // Only turn off it the key is held for 5 seconds or longer.
+};
+
 &lt {  // layer-tap config
   flavor = "balanced";
   tapping-term-ms = <200>;
@@ -126,8 +130,8 @@
 // │             │             │     COPY    │    PASTE    │             │   │             │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
         &none         &none       &kp LC(C)     &kp LC(V)       &none             &none      &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │     HELD_   │             │             │   │             │             │             │
-                                    &trans       &trans        &trans             &trans       &trans         &trans
+//                             │     HELD_   │             │             │   │             │             │  SOFT OFF   │
+                                    &trans       &trans        &trans             &trans       &trans       &soft_off
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };

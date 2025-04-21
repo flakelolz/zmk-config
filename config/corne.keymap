@@ -8,6 +8,7 @@
 #define RAISE     2
 #define ADJUST    3
 #define LHAND     4
+#define __        0
 
 #include "keys/36.h"
 // #include "includes/macros.dtsi"
@@ -54,8 +55,8 @@
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │  (4, TAB)   │ MAGIC SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
-                                &lt LHAND TAB   &sk LSHFT   &ltb LOWER 1      &lte RAISE 1  &kp SPACE       &kp ESC
+//                             │  (4, TAB)   │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
+                                &lt LHAND TAB   &sk LSHFT   &ltb LOWER __     &lte RAISE __ &kp SPACE       &kp ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -73,8 +74,8 @@
 // │      $      │      #      │      [      │      ]      │      ^      │   │      .      │      1      │      2      │      3      │      `      │
       &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp CARET        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp GRAVE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │ MAGIC SHIFT │    HELD_    │   │      0      │      _      │             │
-                                   &trans        &trans         &trans          &kp KP_N0     &kp UNDER      &trans
+//                             │             │    SHIFT    │    HELD_    │   │      0      │    SPACE    │      _      │
+                                   &trans        &trans         &trans          &kp KP_N0      &trans       &kp UNDER
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };

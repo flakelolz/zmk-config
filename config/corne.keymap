@@ -34,6 +34,12 @@
   quick-tap-ms = <175>;
 };
 
+&mt {  // mod-tap config
+  flavor = "balanced";
+  tapping-term-ms = <200>;
+  quick-tap-ms = <175>;
+};
+
 / {
   // 5x3 Layout
   chosen {
@@ -55,8 +61,8 @@
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │  (4, TAB)   │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │      ESC    │
-                                &lt LHAND TAB   &sk LSHFT   &ltb LOWER __     &lte RAISE __ &kp SPACE       &kp ESC
+//                             │  (4, TAB)   │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │ (RCTRL, ESC)│
+                                &lt LHAND TAB   &sk LSHFT   &ltb LOWER __     &lte RAISE __ &kp SPACE     &mt RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };

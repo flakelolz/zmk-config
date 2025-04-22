@@ -40,6 +40,10 @@
   quick-tap-ms = <175>;
 };
 
+&sk { // sticky key
+    quick-release
+}
+
 / {
   // 5x3 Layout
   chosen {

@@ -41,7 +41,7 @@
 };
 
 &sk { // sticky key
-    quick-release
+    quick-release;
 };
 
 / {

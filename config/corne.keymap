@@ -42,7 +42,7 @@
 
 &sk { // sticky key
     quick-release
-}
+};
 
 / {
   // 5x3 Layout

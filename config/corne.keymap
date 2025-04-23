@@ -112,13 +112,13 @@
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      ¡      │             │      É      │             │             │   │             │     Ú/Ü     │      Í      │      Ó      │             │
-        &i_excl       &none         &acnt_e       &none         &none             &none         &mod_u        &acnt_i       &acnt_o       &none
+        &i_excl       &none          &e           &none         &none             &none          &u            &i            &o           &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      Á      │             │             │             │             │   │             │             │             │             │             │
-        &acnt_a       &none         &none         &none         &none             &none         &none         &none         &none         &none
+         &a          &trans        &trans        &trans         &none             &none        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │             │             │   │      Ñ      │             │             │      °      │      ¿      │
-        &none         &none         &none         &none         &none             &ene          &none         &none        &dgree        &i_qmrk
+        &none         &none         &none         &none         &none              &n           &none         &none        &dgree        &i_qmrk
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │    HELD_    │   │    _HELD    │             │             │
                                     &trans       &trans        &trans             &trans       &trans         &trans
@@ -209,28 +209,28 @@
     };
 
     // Mod Morph
-    acnt_a: accent_a {
+    a: accent_a {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_a>, <&u_a>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    acnt_e: accent_e {
+    e: accent_e {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_e>, <&u_e>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    acnt_i: accent_i {
+    i: accent_i {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_i>, <&u_i>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    acnt_o: accent_o {
+    o: accent_o {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_o>, <&u_o>;
@@ -251,14 +251,14 @@
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    mod_u: mod_u {
+    u: mod_u {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&acnt_u>, <&umlt_u>;
         mods = <(MOD_LALT|MOD_RALT)>;
     };
 
-    ene: ene {
+    n: ene {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_n>, <&u_n>;

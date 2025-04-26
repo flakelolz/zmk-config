@@ -157,6 +157,13 @@
 };
 
 / {
+    combo_umlt_u {
+        timeout-ms = <50>;
+        layers = <3>;
+        key-positions = <6 7>;
+        bindings = <&umlt_u>;
+    };
+
     combos {
         compatible = "zmk,combos";
         combo_bt_clr {
@@ -237,7 +244,7 @@
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    acnt_u: accent_u {
+    u: accent_u {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&l_u>, <&u_u>;
@@ -249,13 +256,6 @@
         #binding-cells = <0>;
         bindings = <&l_um_u>, <&u_um_u>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    u: mod_u {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&acnt_u>, <&umlt_u>;
-        mods = <(MOD_LALT|MOD_RALT)>;
     };
 
     n: ene {

@@ -157,15 +157,16 @@
 };
 
 / {
-    combo_umlt_u {
-        timeout-ms = <50>;
-        layers = <3>;
-        key-positions = <6 7>;
-        bindings = <&umlt_u>;
-    };
-
     combos {
         compatible = "zmk,combos";
+
+        combo_umlt_u {
+            timeout-ms = <50>;
+            layers = <3>;
+            key-positions = <6 7>;
+            bindings = <&umlt_u>;
+        };
+
         combo_bt_clr {
             timeout-ms = <50>;
             layers = <4>;

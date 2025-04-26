@@ -136,8 +136,8 @@
 // │ SELECT ALL  │ SCREEN SHOT │             │    FIND     │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
       &kp LC(A)   &kp LS(LG(S))     &none       &kp LC(F)       &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │     COPY    │    PASTE    │             │   │             │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
-        &none         &none       &kp LC(C)     &kp LC(V)       &none             &none      &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
+// │             │             │     COPY    │    PASTE    │             │   │   NUM LOCK  │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
+        &none         &none       &kp LC(C)     &kp LC(V)       &none          &kp KP_NUM    &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │     HELD_   │             │             │   │             │             │  SOFT OFF   │
                                     &trans       &trans        &trans             &trans       &trans       &soft_off

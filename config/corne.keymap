@@ -64,8 +64,8 @@
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │  (4, TAB)   │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │ (RCTRL, ESC)│
-                                  &mo LHAND  &tm LSHFT TAB &lt LOWER BSPC    &lt RAISE RET &tm RSHFT SPACE &tm RCTRL ESC
+//                             │      4      │ (SHFT, TAB) │  (1, BSPC)  │   │  (2, ENTR)  │(SHFT, SPACE)│             │
+                                  &mo LHAND  &tm LSHFT TAB  &lt LOWER BSPC   &lt RAISE RET &tm RSHFT SPACE    &none
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -81,7 +81,7 @@
       &kp STAR      &kp AMPS      &kp LPAR      &kp RPAR      &kp DLLR         &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp UNDER
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │      #      │      [      │      ]      │      %      │   │      .      │      1      │      2      │      3      │             │
-        &none       &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3       &none
+        &none       &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3      &trans
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │    SHIFT    │    HELD_    │   │  (2, INS)   │      0      │             │
                                    &trans        &trans         &trans        &lt RAISE INS   &kp KP_N0       &trans
@@ -102,7 +102,7 @@
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │             │      `      │
       &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none         &none       &kp GRAVE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │    SHIFT    │   (1, DEL)  │   │    _HELD    │             │             │
+//                             │             │             │   (1, DEL)  │   │    _HELD    │             │             │
                                    &trans        &trans     &lt LOWER DEL         &trans        &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
@@ -131,17 +131,17 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │             │             │             │             │             │   │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │
-        &none         &none         &none         &none         &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV
+// │             │      ↑      │             │             │             │   │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │
+        &none       &kp UP          &none         &none         &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │ SELECT ALL  │ SCREEN SHOT │             │    FIND     │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
-      &kp LC(A)   &kp LS(LG(S))     &none       &kp LC(F)       &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
+// │      ←      │      ↓      │      →      │    FIND     │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
+      &kp LEFT      &kp DOWN      &kp RIGHT     &kp LC(F)       &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │     COPY    │    PASTE    │             │   │   NUM LOCK  │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
         &none         &none       &kp LC(C)     &kp LC(V)       &none          &kp KP_NUM    &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │     HELD_   │             │TOGGLE USB/BT│   │             │             │  SOFT OFF   │
-                                    &trans       &trans     &out OUT_TOG          &trans       &trans       &soft_off
+//                             │     HELD_   │             │             │   │             │             │             │
+                                    &trans       &trans      &kp ENTER            &trans       &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -168,18 +168,18 @@
             bindings = <&kp ESC>;
         };
 
-        // combo_tab {
-        //     timeout-ms = <30>;
-        //     layers = <0>;
-        //     key-positions = <20 21>;
-        //     bindings = <&kp TAB>;
-        // };
-
         combo_umlt_u {
             timeout-ms = <50>;
             layers = <3>;
             key-positions = <6 7>;
             bindings = <&umlt_u>;
+        };
+
+        combo_usb_toggle {
+            timeout-ms = <50>;
+            layers = <4>;
+            key-positions = <5 6>;
+            bindings = <&out OUT_TOG>;
         };
 
         combo_bt_clr {

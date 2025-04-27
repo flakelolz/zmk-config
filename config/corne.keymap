@@ -65,7 +65,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │  (4, TAB)   │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │    SPACE    │ (RCTRL, ESC)│
-                                &lt LHAND TAB   &kp LSHFT  &lt LOWER BSPC    &lt RAISE RET &tm RSHFT SPACE &tm RCTRL ESC
+                                  &lt LHAND  &tm LSHFT TAB &lt LOWER BSPC    &lt RAISE RET &tm RSHFT SPACE &tm RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -168,12 +168,12 @@
             bindings = <&kp ESC>;
         };
 
-        combo_tab {
-            timeout-ms = <30>;
-            layers = <0>;
-            key-positions = <20 21>;
-            bindings = <&kp TAB>;
-        };
+        // combo_tab {
+        //     timeout-ms = <30>;
+        //     layers = <0>;
+        //     key-positions = <20 21>;
+        //     bindings = <&kp TAB>;
+        // };
 
         combo_umlt_u {
             timeout-ms = <50>;

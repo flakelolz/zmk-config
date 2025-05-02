@@ -175,18 +175,25 @@
             bindings = <&umlt_u>;
         };
 
-        combo_usb_toggle {
-            timeout-ms = <50>;
-            layers = <4>;
-            key-positions = <5 6>;
-            bindings = <&out OUT_TOG>;
-        };
-
         combo_bt_clr {
             timeout-ms = <50>;
             layers = <4>;
-            key-positions = <8 9>;
+            key-positions = <5 6>;
             bindings = <&bt BT_CLR>;
+        };
+
+        combo_bt_clr_all {
+            timeout-ms = <50>;
+            layers = <4>;
+            key-positions = <5 6 7>;
+            bindings = <&bt BT_CLR_ALL>;
+        };
+
+        combo_usb_toggle {
+            timeout-ms = <50>;
+            layers = <4>;
+            key-positions = <8 9>;
+            bindings = <&out OUT_TOG>;
         };
     };
 };
@@ -227,7 +234,7 @@
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            // retro-tap;                                              // use tap when key is used without another key
+            retro-tap;                                              // use tap when key is used without another key
         };
     };
 

@@ -83,8 +83,8 @@
 // │             │      #      │      [      │      ]      │      %      │   │      .      │      1      │      2      │      3      │             │
         &none       &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3      &trans
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │    SHIFT    │    HELD_    │   │  (2, INS)   │      0      │             │
-                                   &trans        &trans         &trans        &lt RAISE INS   &kp KP_N0       &trans
+//                             │             │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
+                                   &trans        &trans         &trans        &lt RAISE INS     &trans      &kp KP_N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };

@@ -234,7 +234,7 @@
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            retro-tap;                                              // use tap when key is used without another key
+            // retro-tap;                                              // use tap when key is used without another key
         };
     };
 

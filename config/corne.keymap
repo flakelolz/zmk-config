@@ -8,7 +8,7 @@
 #define LOWER     1
 #define RAISE     2
 #define ADJUST    3
-#define LHAND     4
+#define WORK      4
 #define __        0
 
 #include "keys/36.h"
@@ -65,7 +65,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │      4      │ (SHFT, TAB) │  (1, BSPC)  │   │  (2, ENTR)  │(SHFT, SPACE)│     ESC     │
-                                  &mo LHAND  &tm LSHFT TAB  &lt LOWER BSPC   &lt RAISE RET &tm RSHFT SPACE &kp ESC
+                                  &mo WORK   &tm LSHFT TAB  &lt LOWER BSPC   &lt RAISE RET &tm RSHFT SPACE &kp ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -75,16 +75,16 @@
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │      !      │      @      │      {      │      }      │      ^      │   │      +      │      7      │      8      │      9      │      =      │
-      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp CARET        &kp KP_PLUS    &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp EQUAL
+      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp CARET         &kp PLUS     &kp N7        &kp N8        &kp N9         &kp EQUAL
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      *      │      &      │      (      │      )      │      $      │   │      -      │      4      │      5      │      6      │      _      │
-      &kp STAR      &kp AMPS      &kp LPAR      &kp RPAR      &kp DLLR         &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp UNDER
+      &kp STAR      &kp AMPS      &kp LPAR      &kp RPAR      &kp DLLR          &kp MINUS    &kp N4        &kp N5        &kp N6         &kp UNDER
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │      #      │      [      │      ]      │      %      │   │      .      │      1      │      2      │      3      │             │
-        &none       &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT        &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3      &trans
+        &none       &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp DOT      &kp N1        &kp N2        &kp N3          &trans
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
-                                   &trans        &trans         &trans        &lt RAISE INS     &trans      &kp KP_N0
+                                   &trans        &trans         &trans        &lt RAISE INS     &trans     &kp N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -99,8 +99,8 @@
 // │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │      '      │
       &kp F5        &kp F6        &kp F7        &kp F8          &none           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │             │      `      │
-      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none         &none       &kp GRAVE
+// │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │      °      │      `      │
+      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none        &dgree        &kp GRAVE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │   (1, DEL)  │   │    _HELD    │             │             │
                                    &trans        &trans     &lt LOWER DEL         &trans        &trans        &trans
@@ -112,36 +112,36 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      ¡      │             │      É      │             │             │   │             │     Ú/Ü     │      Í      │      Ó      │             │
-        &i_excl       &none          &e           &none         &none             &none          &u            &i            &o           &none
+// │             │             │             │             │             │   │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │
+        &none         &none         &none         &none         &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      Á      │             │             │             │             │   │             │             │             │             │             │
-         &a          &trans        &trans        &trans         &none             &none        &trans        &trans        &trans        &trans
+// │             │             │             │             │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
+        &none         &none         &none         &none         &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │             │             │   │      Ñ      │             │             │      °      │      ¿      │
-        &none         &none         &none         &none         &none              &n           &none         &none        &dgree        &i_qmrk
+// │             │             │             │             │             │   │             │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
+        &none         &none         &none         &none         &none             &none      &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │    HELD_    │   │    _HELD    │             │             │
-                                    &trans       &trans        &trans             &trans       &trans         &trans
+//                             │             │             │    HELD_    │   │             │             │             │
+                                    &trans       &trans        &trans             &trans       &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
 
-    lhand_layer { // layer 4 (left hand)
+    work_layer { // layer 4 (for work)
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │             │      ↑      │             │             │             │   │   BT FRST   │   BT SCND   │   BT THRD   │    BT NXT   │    BT PRV   │
-        &none       &kp UP          &none         &none         &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_NXT    &bt BT_PRV
+// │             │      ↑      │             │             │             │   │      +      │      7      │      8      │      9      │   NUM LOCK  │
+        &none       &kp UP          &none         &none         &none          &kp KP_PLUS    &kp KP_N7     &kp KP_N8     &kp KP_N9    &kp KP_NUM
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      ←      │      ↓      │      →      │    FIND     │             │   │    PREV     │    VolDn    │    VolUp    │    NEXT     │    PLAY     │
-      &kp LEFT      &kp DOWN      &kp RIGHT     &kp LC(F)       &none          &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_NEXT     &kp C_PP
+// │      ←      │      ↓      │      →      │    FIND     │             │   │      -      │      4      │      5      │      6      │      *      │
+      &kp LEFT      &kp DOWN      &kp RIGHT     &kp LC(F)       &none          &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6  &kp KP_MULTIPLY
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │     COPY    │    PASTE    │             │   │   NUM LOCK  │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
-        &none         &none       &kp LC(C)     &kp LC(V)       &none          &kp KP_NUM    &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
+// │             │             │     COPY    │    PASTE    │             │   │      .      │      1      │      2      │      3      │      /      │
+        &none         &none       &kp LC(C)     &kp LC(V)       &none          &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3   &kp KP_DIVIDE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │     HELD_   │             │             │   │             │             │             │
-                                    &trans       &trans      &kp ENTER            &trans       &trans        &trans
+//                             │     HELD_   │    ENTER    │             │   │    ENTER    │             │      0      │
+                                    &trans    &kp ENTER         &trans        &kp KP_ENTER      &trans      &kp KP_N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -168,30 +168,30 @@
             bindings = <&kp ESC>;
         };
 
-        combo_umlt_u {
-            timeout-ms = <50>;
-            layers = <3>;
-            key-positions = <6 7>;
-            bindings = <&umlt_u>;
-        };
+        // combo_umlt_u {
+        //     timeout-ms = <50>;
+        //     layers = <3>;
+        //     key-positions = <6 7>;
+        //     bindings = <&umlt_u>;
+        // };
 
         combo_bt_clr {
             timeout-ms = <50>;
-            layers = <4>;
+            layers = <3>;
             key-positions = <5 6>;
             bindings = <&bt BT_CLR>;
         };
 
         combo_bt_clr_all {
             timeout-ms = <50>;
-            layers = <4>;
+            layers = <3>;
             key-positions = <5 6 7>;
             bindings = <&bt BT_CLR_ALL>;
         };
 
         combo_usb_toggle {
             timeout-ms = <50>;
-            layers = <4>;
+            layers = <3>;
             key-positions = <8 9>;
             bindings = <&out OUT_TOG>;
         };
@@ -238,264 +238,264 @@
         };
     };
 
-    // Mod Morph
-    a: accent_a {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_a>, <&u_a>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    e: accent_e {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_e>, <&u_e>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    i: accent_i {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_i>, <&u_i>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    o: accent_o {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_o>, <&u_o>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    u: accent_u {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_u>, <&u_u>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    umlt_u: umlaut_u {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_um_u>, <&u_um_u>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n: ene {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&l_n>, <&u_n>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
+    // // Mod Morph
+    // a: accent_a {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_a>, <&u_a>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
+    //
+    // e: accent_e {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_e>, <&u_e>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
+    //
+    // i: accent_i {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_i>, <&u_i>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
+    //
+    // o: accent_o {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_o>, <&u_o>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
+    //
+    // u: accent_u {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_u>, <&u_u>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
+    //
+    // umlt_u: umlaut_u {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_um_u>, <&u_um_u>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
+    //
+    // n: ene {
+    //     compatible = "zmk,behavior-mod-morph";
+    //     #binding-cells = <0>;
+    //     bindings = <&l_n>, <&u_n>;
+    //     mods = <(MOD_LSFT|MOD_RSFT)>;
+    // };
 };
 
-/ {
-    macros {
+// / {
+//     macros {
         // SPANISH LETTERS
-        l_a: acnt_a { // á
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_0>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
+        // l_a: acnt_a { // á
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_0>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // u_a: upr_acnt_a { // Á
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_3>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // l_e: lwr_acnt_e { // é
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_3 &kp KP_NUMBER_0>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // u_e: upr_acnt_e { // É
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_4 &kp KP_NUMBER_4>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // l_i: lwr_acnt_i { // í
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // u_i: upr_acnt_i { // Í
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_0 &kp KP_NUMBER_5>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // l_o: lwr_acnt_o { // ó
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_2>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // u_o: upr_acnt_o { // Ó
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_1>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // l_u: lwr_acnt_u { // ú
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_3>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // u_u: upr_acnt_u { // Ú
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_8>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // l_um_u: lwr_umlt_u { // ü
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_2>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // u_um_u: upr_umlt_u { // Ü
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_0>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // l_n: lwr_ene { // ñ
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_4>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // u_n: upr_ene { // Ñ
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_5>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // i_excl: inv_excl { // ¡
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
+        //
+        // i_qmrk: inv_qmrk { // ¿
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_1>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
 
-        u_a: upr_acnt_a { // Á
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_3>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        l_e: lwr_acnt_e { // é
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_3 &kp KP_NUMBER_0>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        u_e: upr_acnt_e { // É
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_4 &kp KP_NUMBER_4>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        l_i: lwr_acnt_i { // í
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        u_i: upr_acnt_i { // Í
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_0 &kp KP_NUMBER_5>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        l_o: lwr_acnt_o { // ó
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_2>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        u_o: upr_acnt_o { // Ó
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_1>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        l_u: lwr_acnt_u { // ú
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_3>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        u_u: upr_acnt_u { // Ú
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_8>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        l_um_u: lwr_umlt_u { // ü
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_2>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        u_um_u: upr_umlt_u { // Ü
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_0>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        l_n: lwr_ene { // ñ
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_4>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        u_n: upr_ene { // Ñ
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_5>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        i_excl: inv_excl { // ¡
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        i_qmrk: inv_qmrk { // ¿
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_1>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
-        // OTHER
-        dgree: degree { // °
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_7 &kp KP_NUMBER_6>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
+        // // OTHER
+        // dgree: degree { // °
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings =
+        //         <&macro_press>,
+        //         <&kp LEFT_ALT>,
+        //         <&macro_tap>,
+        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_7 &kp KP_NUMBER_6>,
+        //         <&macro_release>,
+        //         <&kp LEFT_ALT>;
+        // };
 
         // PROGRAMMING SYNTAX
         // s_arrw: slim_arrow { // ->
@@ -558,5 +558,5 @@
         //         <&kp EQUAL>;
         // };
 
-    };
+    // };
 };

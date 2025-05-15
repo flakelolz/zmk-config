@@ -24,7 +24,7 @@
 //                          ╰caps_word on double tap, not sure if I like it yet
 
 &soft_off {
-    hold-time-ms = <3000>; // Only turn off it the key is held for 3 seconds or longer.
+    hold-time-ms = <500>; // Only turn off it the key is held half a second or longer.
 };
 
 &lt {  // layer-tap config
@@ -121,7 +121,7 @@
 // │             │             │             │             │             │   │             │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
         &none         &none         &none         &none         &none             &none      &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │    HELD_    │   │             │             │             │
+//                             │             │             │    HELD_    │   │    _HELD    │             │             │
                                     &trans       &trans        &trans             &trans       &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
@@ -194,6 +194,13 @@
             layers = <3>;
             key-positions = <8 9>;
             bindings = <&out OUT_TOG>;
+        };
+
+        combo_soft_off {
+            timeout-ms = <50>;
+            layers = <3>;
+            key-positions = <10 19>;
+            bindings = <&soft_off>;
         };
     };
 };

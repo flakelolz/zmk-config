@@ -65,7 +65,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │      4      │ (SHFT, TAB) │  (1, BSPC)  │   │  (2, ENTR)  │(SHFT, SPACE)│     ESC     │
-                                  &mo WORK   &tm LSHFT TAB  &lt LOWER BSPC   &lt RAISE RET &tm RSHFT SPACE &kp ESC
+                                  &mo WORK   &tm LSHFT TAB  &lt LOWER BSPC   &lt RAISE RET &tm RSHFT SPACE &tm RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };

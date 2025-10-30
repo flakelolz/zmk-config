@@ -9,19 +9,14 @@
 #define RAISE     2
 #define ADJUST    3
 #define WORK      4
-#define __        0
+#define GAME1     5
+#define GAME2     6
+// #define __        0
 
 #include "keys/36.h"
 // #include "includes/macros.dtsi"
 // #include "includes/combos.dtsi"
 // #include "includes/behaviors.dtsi"
-
-// ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-//                     │SEC THMB │PRM THMB │TER THMB │   │TER THMB │PRM THMB │SEC THMB │
-//                     │   MED   │  NUM    │ LSHIFT  │   │  NAV    │CTRL+DEL │  FUN    │
-//                     │ Sk SHFT │ REPEAT  │  Tab    │   │  SPACE  │  DEL    │ SK CTRL │
-//                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
-//                          ╰caps_word on double tap, not sure if I like it yet
 
 &soft_off {
     hold-time-ms = <500>; // Only turn off it the key is held half a second or longer.
@@ -64,7 +59,7 @@
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │      4      │ (SHFT, TAB) │  (1, BSPC)  │   │  (2, ENTR)  │(SHFT, SPACE)│     ESC     │
+//                             │      4      │ (SHFT, TAB) │  (1, BSPC)  │   │  (2, ENTR)  │(SHFT, SPACE)│ (CTRL, ESC) │
                                   &mo WORK   &tm LSHFT TAB  &lt LOWER BSPC   &lt RAISE RET &tm RSHFT SPACE &tm RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
@@ -83,8 +78,8 @@
 // │             │      #      │      [      │      ]      │      %      │   │      .      │      1      │      2      │      3      │             │
         &none       &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp DOT      &kp N1        &kp N2        &kp N3          &trans
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
-                                   &trans        &trans         &trans        &lt RAISE INS     &trans     &kp N0
+//                             │   LAYER 5   │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
+                                  &to GAME1      &trans        &trans         &lt RAISE INS     &trans     &kp N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -99,8 +94,8 @@
 // │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │      '      │
       &kp F5        &kp F6        &kp F7        &kp F8          &none           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │      °      │      `      │
-      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none        &dgree        &kp GRAVE
+// │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │             │      `      │
+      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none         &none         &kp GRAVE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │   (1, DEL)  │   │    _HELD    │             │             │
                                    &trans        &trans     &lt LOWER DEL         &trans        &trans        &trans
@@ -131,17 +126,55 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │             │      ↑      │             │             │             │   │      +      │      7      │      8      │      9      │   NUM LOCK  │
-        &none       &kp UP          &none         &none         &none          &kp KP_PLUS    &kp KP_N7     &kp KP_N8     &kp KP_N9    &kp KP_NUM
+// │             │             │             │             │             │   │      +      │      7      │      8      │      9      │   NUM LOCK  │
+        &none         &none         &none         &none         &none          &kp KP_PLUS    &kp KP_N7     &kp KP_N8     &kp KP_N9    &kp KP_NUM
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      ←      │      ↓      │      →      │    FIND     │             │   │      -      │      4      │      5      │      6      │      *      │
-      &kp LEFT      &kp DOWN      &kp RIGHT     &kp LC(F)       &none          &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6  &kp KP_MULTIPLY
+// │             │             │             │    FIND     │             │   │      -      │      4      │      5      │      6      │      *      │
+        &none         &none         &none       &kp LC(F)       &none          &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6  &kp KP_MULTIPLY
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │     COPY    │    PASTE    │             │   │      .      │      1      │      2      │      3      │      /      │
-        &none         &none       &kp LC(C)     &kp LC(V)       &none          &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3   &kp KP_DIVIDE
+// │     UNDO    │     CUT     │     COPY    │    PASTE    │             │   │      .      │      1      │      2      │      3      │      /      │
+      &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &none          &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3   &kp KP_DIVIDE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │     HELD_   │    ENTER    │             │   │    ENTER    │             │      0      │
                                     &trans    &kp ENTER         &trans        &kp KP_ENTER      &trans      &kp KP_N0
+//                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
+      >;
+    };
+
+    game1_layer { // layer 5 (gaming default)
+    bindings = <
+
+// ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
+// │     TAB     │      Q      │      W      │      E      │      R      │   │             │             │             │             │             │
+       &kp TAB      &kp Q         &kp W         &kp E         &kp R               &trans       &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+// │    SHIFT    │      S      │      A      │      D      │      F      │   │             │             │             │             │             │
+      &kp LSHFT     &kp S         &kp A         &kp D         &kp F               &trans       &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+// │   CONTROL   │      Z      │      X      │      C      │      V      │   │             │             │             │             │             │
+      &kp LCTRL     &kp Z         &kp X         &kp C         &kp V               &trans       &trans        &trans        &trans        &trans
+// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+//                             │             │    SPACE    │      6      │   │             │             │             │
+                                    &none       &kp SPACE   &mo GAME2             &trans       &trans        &trans
+//                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
+      >;
+    };
+
+    game2_layer { // layer 6 (gaming extension)
+    bindings = <
+
+// ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
+// │     ESC     │     F1      │     F2      │     F3      │     F4      │   │             │             │             │             │             │
+     &kp ESC       &kp F1        &kp F2        &kp F3        &kp F4               &trans       &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+// │      `      │      1      │      2      │      3      │      4      │   │             │             │             │             │             │
+      &kp GRAVE    &kp N1        &kp N2        &kp N3        &kp N4               &trans       &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+// │     ALT     │             │      I      │      M      │      P      │   │             │             │             │             │             │
+      &kp LALT        &none       &kp I         &kp M         &kp P               &trans       &trans        &trans        &trans        &trans
+// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+//                             │   LAYER 1   │             │    HELD_    │   │             │             │             │
+                                  &to BASE        &none        &trans             &trans       &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };

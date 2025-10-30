@@ -148,8 +148,8 @@
 // │     TAB     │      Q      │      W      │      E      │      R      │   │             │             │             │             │             │
        &kp TAB      &kp Q         &kp W         &kp E         &kp R               &trans       &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │    SHIFT    │      S      │      A      │      D      │      F      │   │             │             │             │             │             │
-      &kp LSHFT     &kp S         &kp A         &kp D         &kp F               &trans       &trans        &trans        &trans        &trans
+// │    SHIFT    │      A      │      S      │      D      │      F      │   │             │             │             │             │             │
+      &kp LSHFT     &kp A         &kp S         &kp D         &kp F               &trans       &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │   CONTROL   │      Z      │      X      │      C      │      V      │   │             │             │             │             │             │
       &kp LCTRL     &kp Z         &kp X         &kp C         &kp V               &trans       &trans        &trans        &trans        &trans

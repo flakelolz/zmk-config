@@ -232,7 +232,7 @@
         ts: thumb_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&sk>, <&kp>;
+            bindings = <&kp>, <&sk>;
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;

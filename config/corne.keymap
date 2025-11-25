@@ -11,12 +11,8 @@
 #define WORK      4
 #define GAME1     5
 #define GAME2     6
-// #define __        0
 
 #include "keys/36.h"
-// #include "includes/macros.dtsi"
-// #include "includes/combos.dtsi"
-// #include "includes/behaviors.dtsi"
 
 &soft_off {
     hold-time-ms = <500>; // Only turn off it the key is held half a second or longer.
@@ -60,7 +56,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │   (4, TAB)  │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │      SPACE  │ (CTRL, ESC) │
-                                 &lt WORK TAB   &sk LSHFT   &lt LOWER BSPC    &lt RAISE RET   &kp SPACE   &tm RCTRL ESC
+                                 &lt WORK TAB    &shift     &lt LOWER BSPC    &lt RAISE RET   &kp SPACE   &tm RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -201,13 +197,6 @@
             bindings = <&kp ESC>;
         };
 
-        // combo_umlt_u {
-        //     timeout-ms = <50>;
-        //     layers = <3>;
-        //     key-positions = <6 7>;
-        //     bindings = <&umlt_u>;
-        // };
-
         combo_bt_clr {
             timeout-ms = <50>;
             layers = <3>;
@@ -240,6 +229,15 @@
 
 / {
     behaviors {
+        shift: thumb_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&sk LSHIFT>, <&kp LSHIFT>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;                                // repeat on tap-into-hold
+            quick-tap-ms = <175>;
+        };
+
         // Timer-less HomeRow Mods
         hml: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
@@ -274,269 +272,13 @@
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            // retro-tap;                                              // use tap when key is used without another key
+            // retro-tap;                                           // use tap when key is used without another key
         };
     };
-
-    // // Mod Morph
-    // a: accent_a {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_a>, <&u_a>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
-    //
-    // e: accent_e {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_e>, <&u_e>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
-    //
-    // i: accent_i {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_i>, <&u_i>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
-    //
-    // o: accent_o {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_o>, <&u_o>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
-    //
-    // u: accent_u {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_u>, <&u_u>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
-    //
-    // umlt_u: umlaut_u {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_um_u>, <&u_um_u>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
-    //
-    // n: ene {
-    //     compatible = "zmk,behavior-mod-morph";
-    //     #binding-cells = <0>;
-    //     bindings = <&l_n>, <&u_n>;
-    //     mods = <(MOD_LSFT|MOD_RSFT)>;
-    // };
 };
 
 / {
 macros {
-        // SPANISH LETTERS
-        // l_a: acnt_a { // á
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_0>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // u_a: upr_acnt_a { // Á
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_3>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // l_e: lwr_acnt_e { // é
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_3 &kp KP_NUMBER_0>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // u_e: upr_acnt_e { // É
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_4 &kp KP_NUMBER_4>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // l_i: lwr_acnt_i { // í
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // u_i: upr_acnt_i { // Í
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_0 &kp KP_NUMBER_5>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // l_o: lwr_acnt_o { // ó
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_2>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // u_o: upr_acnt_o { // Ó
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_1>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // l_u: lwr_acnt_u { // ú
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_3>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // u_u: upr_acnt_u { // Ú
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_8>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // l_um_u: lwr_umlt_u { // ü
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_2>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // u_um_u: upr_umlt_u { // Ü
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_0>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // l_n: lwr_ene { // ñ
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_4>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // u_n: upr_ene { // Ñ
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_5>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // i_excl: inv_excl { // ¡
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-        //
-        // i_qmrk: inv_qmrk { // ¿
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings =
-        //         <&macro_press>,
-        //         <&kp LEFT_ALT>,
-        //         <&macro_tap>,
-        //         <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_1>,
-        //         <&macro_release>,
-        //         <&kp LEFT_ALT>;
-        // };
-
-        // OTHER
-        dgree: degree { // °
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_7 &kp KP_NUMBER_6>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
-        };
-
         // PROGRAMMING SYNTAX
         // s_arrw: slim_arrow { // ->
         //     compatible = "zmk,behavior-macro";

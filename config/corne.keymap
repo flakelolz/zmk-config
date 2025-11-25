@@ -69,17 +69,17 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      !      │      @      │      {      │      }      │      ^      │   │      +      │      7      │      8      │      9      │      =      │
-      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp CARET         &kp PLUS     &kp N7        &kp N8        &kp N9         &kp EQUAL
+// │      !      │      @      │      {      │      }      │      ^      │   │      +      │      7      │      8      │      9      │      |      │
+      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp CARET         &kp PLUS     &kp N7        &kp N8        &kp N9          &kp PIPE
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      *      │      &      │      (      │      )      │      $      │   │      -      │      4      │      5      │      6      │      _      │
-      &kp STAR      &kp AMPS      &kp LPAR      &kp RPAR      &kp DLLR          &kp MINUS    &kp N4        &kp N5        &kp N6         &kp UNDER
+// │      =      │      &      │      (      │      )      │      *      │   │      -      │      4      │      5      │      6      │      "      │
+      &kp EQUAL     &kp AMPS      &kp LPAR      &kp RPAR      &kp STAR          &kp MINUS    &kp N4        &kp N5        &kp N6          &kp DQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │      #      │      [      │      ]      │      %      │   │      .      │      1      │      2      │      3      │             │
-        &none       &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp DOT      &kp N1        &kp N2        &kp N3          &trans
+// │      $      │      #      │      [      │      ]      │      %      │   │      >      │      1      │      2      │      3      │      ~      │
+      &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp GT       &kp N1        &kp N2        &kp N3          &kp GRAVE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │   LAYER 5   │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
-                                  &to GAME1      &trans        &trans         &lt RAISE INS     &trans     &kp N0
+//                             │   LAYER 5   │    SHIFT    │    HELD_    │   │  (2, INS)   │      _      │      0      │
+                                  &to GAME1      &trans        &trans         &lt RAISE INS   &kp UNDER    &kp N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -95,7 +95,7 @@
       &kp F5        &kp F6        &kp F7        &kp F8          &none           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │             │      `      │
-      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none         &none         &kp GRAVE
+      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none         &none        &kp GRAVE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │   (1, DEL)  │   │    _HELD    │             │             │
                                    &trans        &trans     &lt LOWER DEL         &trans        &trans        &trans

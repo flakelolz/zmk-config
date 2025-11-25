@@ -55,8 +55,8 @@
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │   (4, TAB)  │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │      SPACE  │ (CTRL, ESC) │
-                                 &lt WORK TAB    &shift     &lt LOWER BSPC    &lt RAISE RET   &kp SPACE   &tm RCTRL ESC
+//                             │   (4, TAB)  │ THUMB SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │      SPACE  │ (CTRL, ESC) │
+                               &lt WORK TAB &ts LSHFT LSHFT &lt LOWER BSPC    &lt RAISE RET   &kp SPACE   &tm RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -229,10 +229,10 @@
 
 / {
     behaviors {
-        shift: thumb_shift {
+        ts: thumb_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&sk LSHIFT>, <&kp LSHIFT>;
+            bindings = <&sk>, <&kp>;
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;

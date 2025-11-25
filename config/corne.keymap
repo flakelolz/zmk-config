@@ -19,15 +19,15 @@
 };
 
 &lt {  // layer-tap config
-  flavor = "balanced";
+  flavor = "hold-preferred";
   tapping-term-ms = <200>;
-  quick-tap-ms = <175>;
+  quick-tap-ms = <150>;
 };
 
 &mt {  // mod-tap config
-  flavor = "balanced";
-  tapping-term-ms = <200>;
-  quick-tap-ms = <175>;
+  flavor = "hold-preferred";
+  tapping-term-ms = <175>;
+  quick-tap-ms = <150>;
 };
 
 &sk { // sticky key
@@ -56,7 +56,7 @@
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │   (4, TAB)  │ THUMB SHIFT │  (1, BSPC)  │   │  (2, ENTR)  │      SPACE  │ (CTRL, ESC) │
-                               &lt WORK TAB &ts LSHFT LSHFT &lt LOWER BSPC    &lt RAISE RET   &kp SPACE   &tm RCTRL ESC
+                               &tl WORK TAB &ts LSHFT LSHFT &lt LOWER BSPC    &lt RAISE RET   &kp SPACE   &mt RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -236,6 +236,7 @@
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
+            display-name = "Thumb-Shift";
         };
 
         // Timer-less HomeRow Mods
@@ -250,6 +251,7 @@
             global-quick-tap;
             hold-trigger-key-positions = <RIGHT_KEYS THUMB_KEYS>;
             hold-trigger-on-release;                                // requires PR #1423
+            display-name = "HomeRow-Left";
         };
 
         hmr: homerow_mods_right {
@@ -263,16 +265,29 @@
             global-quick-tap;
             hold-trigger-key-positions = <LEFT_KEYS THUMB_KEYS>;
             hold-trigger-on-release;                                // requires PR #1423
+            display-name = "HomeRow-Right";
         };
 
-        tm: thumb_mods {
+        // INFO: Leave it here for when I want to use Space+Shift
+        tm: thumb_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <200>;                                // repeat on tap-into-hold
-            quick-tap-ms = <175>;
-            // retro-tap;                                           // use tap when key is used without another key
+            tapping-term-ms = <175>;                                // repeat on tap-into-hold
+            quick-tap-ms = <150>;
+            retro-tap;                                           // use tap when key is used without another key
+            display-name = "Thumb-Mod";
+        };
+
+        tl: thumb_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+            display-name = "Thumb-Layer";
         };
     };
 };

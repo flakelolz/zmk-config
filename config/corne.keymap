@@ -59,8 +59,8 @@
 // │      Z      │      X      │      C      │      V      │      B      │   │      N      │      M      │      ,      │      .      │      /      │
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │      4      │ (SHFT, TAB) │  (1, BSPC)  │   │  (2, ENTR)  │(SHFT, SPACE)│ (CTRL, ESC) │
-                                  &mo WORK   &tm LSHFT TAB  &lt LOWER BSPC   &lt RAISE RET &tm RSHFT SPACE &tm RCTRL ESC
+//                             │   (4, TAB)  │    SHIFT    │  (1, BSPC)  │   │  (2, ENTR)  │      SPACE  │ (CTRL, ESC) │
+                                 &lt WORK TAB   &sk LSHFT   &lt LOWER BSPC    &lt RAISE RET   &kp SPACE   &tm RCTRL ESC
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -78,7 +78,7 @@
 // │      $      │      #      │      [      │      ]      │      %      │   │      >      │      1      │      2      │      3      │      |      │
       &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp GT       &kp N1        &kp N2        &kp N3          &kp PIPE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │   LAYER 5   │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
+//                             │   LAYER 5   │    SHIFT    │    HELD_    │   │  (2, INS)   │    SPACE    │      0      │
                                   &to GAME1      &trans        &trans         &lt RAISE INS     &trans     &kp N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;

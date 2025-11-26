@@ -21,13 +21,13 @@
 &lt {  // layer-tap config
   flavor = "hold-preferred";
   tapping-term-ms = <200>;
-  quick-tap-ms = <150>;
+  quick-tap-ms = <175>;
 };
 
 &mt {  // mod-tap config
   flavor = "hold-preferred";
-  tapping-term-ms = <175>;
-  quick-tap-ms = <150>;
+  tapping-term-ms = <200>;
+  quick-tap-ms = <175>;
 };
 
 &sk { // sticky key
@@ -274,8 +274,8 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <175>;                                // repeat on tap-into-hold
-            quick-tap-ms = <150>;
+            tapping-term-ms = <200>;                                // repeat on tap-into-hold
+            quick-tap-ms = <175>;
             retro-tap;                                           // use tap when key is used without another key
             display-name = "Thumb-Mod";
         };

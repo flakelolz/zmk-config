@@ -74,8 +74,8 @@
 // │      $      │      #      │      [      │      ]      │      %      │   │      >      │      1      │      2      │      3      │      |      │
       &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp GT       &kp N1        &kp N2        &kp N3          &kp PIPE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │   LAYER 5   │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
-                                  &to GAME1      &trans        &trans         &lt RAISE INS     &trans     &kp N0
+//                             │             │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
+                                   &trans        &trans        &trans         &lt RAISE INS     &trans     &kp N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -93,8 +93,8 @@
 // │      F9     │     F10     │     F11     │     F12     │             │   │             │             │             │             │      \      │
       &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none         &none         &none        &kp BSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │   (1, DEL)  │   │    _HELD    │             │             │
-                                   &trans        &trans     &lt LOWER DEL         &trans        &trans        &trans
+//                             │             │             │   (1, DEL)  │   │    _HELD    │             │    PLAY     │
+                                   &trans        &trans     &lt LOWER DEL         &trans        &trans      &kp C_PP
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -125,14 +125,14 @@
 // │             │             │             │             │             │   │      +      │      7      │      8      │      9      │   NUM LOCK  │
         &none         &none         &none         &none         &none          &kp KP_PLUS    &kp KP_N7     &kp KP_N8     &kp KP_N9    &kp KP_NUM
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │    FIND     │             │   │      -      │      4      │      5      │      6      │      *      │
-        &none         &none         &none       &kp LC(F)       &none          &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6  &kp KP_MULTIPLY
+// │  SELECT ALL │     SAVE    │             │    FIND     │             │   │      -      │      4      │      5      │      6      │      *      │
+      &kp LC(A)     &kp LC(S)       &none       &kp LC(F)       &none          &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6  &kp KP_MULTIPLY
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │     UNDO    │     CUT     │     COPY    │    PASTE    │             │   │      .      │      1      │      2      │      3      │      /      │
       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &none          &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3   &kp KP_DIVIDE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │     HELD_   │    ENTER    │             │   │    ENTER    │             │      0      │
-                                    &trans    &kp ENTER         &trans        &kp KP_ENTER      &trans      &kp KP_N0
+//                             │     HELD_   │             │   LAYER 5   │   │    ENTER    │             │      0      │
+                                    &trans        &trans      &to GAME1       &kp KP_ENTER      &trans      &kp KP_N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -160,11 +160,11 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │     ESC     │     F1      │     F2      │     F3      │     F4      │   │             │             │             │             │             │
-     &kp ESC       &kp F1        &kp F2        &kp F3        &kp F4               &trans       &trans        &trans        &trans        &trans
+// │     ESC     │      1      │      2      │      3      │      4      │   │             │             │             │             │             │
+     &kp ESC       &kp N1        &kp N2        &kp N3        &kp N4               &trans       &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      `      │      1      │      2      │      3      │      4      │   │             │             │             │             │             │
-      &kp GRAVE    &kp N1        &kp N2        &kp N3        &kp N4               &trans       &trans        &trans        &trans        &trans
+// │      `      │     F1      │     F2      │     F3      │     F4      │   │             │             │             │             │             │
+      &kp GRAVE    &kp F1        &kp F2        &kp F3        &kp F4               &trans       &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │     ALT     │             │      I      │      M      │      P      │   │             │             │             │             │             │
       &kp LALT        &none       &kp I         &kp M         &kp P               &trans       &trans        &trans        &trans        &trans
@@ -195,6 +195,13 @@
             layers = <0>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
+        };
+
+        combo_work_enter {
+            timeout-ms = <50>;
+            layers = <4>;
+            key-positions = <12 13>;
+            bindings = <&kp ENTER>;
         };
 
         combo_bt_clr {
@@ -268,7 +275,7 @@
             display-name = "HomeRow-Right";
         };
 
-        // INFO: Leave it here for when I want to use Space+Shift
+        // INFO: Space+Shift
         tm: thumb_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -276,7 +283,7 @@
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            retro-tap;                                           // use tap when key is used without another key
+            // retro-tap;                                           // use tap when key is used without another key
             display-name = "Thumb-Mod";
         };
 

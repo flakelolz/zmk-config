@@ -197,11 +197,11 @@
             bindings = <&kp ESC>;
         };
 
-        combo_work_alt_enter {
+        combo_work_ctrl_enter {
             timeout-ms = <50>;
             layers = <4>;
             key-positions = <12 13>;
-            bindings = <&kp LA(ENTER)>;
+            bindings = <&kp LC(ENTER)>;
         };
 
         combo_bt_clr {

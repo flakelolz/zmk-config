@@ -13,7 +13,7 @@
 #define GAME2     6
 
 #include "keys/36.h"
-#include "inclues/macros.dtsi"
+#include "includes/macros.dtsi"
 
 &soft_off {
     hold-time-ms = <500>; // Only turn off it the key is held half a second or longer.

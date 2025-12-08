@@ -113,27 +113,30 @@
 // │             │             │             │             │             │   │             │    MUTE     │             │ PAUSE BREAK │ PRNT SCREEN │
         &none         &none         &none         &none         &none             &none      &kp C_MUTE       &none    &kp PAUSE_BREAK  &kp PSCRN
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │             │             │    HELD_    │   │    _HELD    │             │             │
-                                    &trans       &trans        &trans             &trans       &trans        &trans
+//                             │   LAYER 5   │             │    HELD_    │   │    _HELD    │             │             │
+                                  &to GAME1      &trans        &trans             &trans       &trans        &trans
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
 
     work_layer { // layer 4 (for work)
     bindings = <
+    //TODO: Alt+Tab
+    // Ctrl+Enter
+    // Ctrl+Backspace
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │             │             │             │             │             │   │      +      │      7      │      8      │      9      │   NUM LOCK  │
-        &none         &none         &none         &none         &none          &kp KP_PLUS    &kp KP_N7     &kp KP_N8     &kp KP_N9    &kp KP_NUM
+// │   Alt+Tab   │             │             │             │             │   │      +      │      7      │      8      │      9      │   NUM LOCK  │
+     &kp LA(TAB)      &none         &none         &none         &none          &kp KP_PLUS    &kp KP_N7     &kp KP_N8     &kp KP_N9    &kp KP_NUM
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │  SELECT ALL │     SAVE    │             │    FIND     │             │   │      -      │      4      │      5      │      6      │      *      │
+// │  SELECT ALe │     SAVE    │             │    FIND     │             │   │      -      │      4      │      5      │      6      │      *      │
       &kp LC(A)     &kp LC(S)       &none       &kp LC(F)       &none          &kp KP_MINUS   &kp KP_N4     &kp KP_N5     &kp KP_N6  &kp KP_MULTIPLY
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │     UNDO    │     CUT     │     COPY    │    PASTE    │             │   │      .      │      1      │      2      │      3      │      /      │
       &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &none          &kp KP_DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3   &kp KP_DIVIDE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-//                             │     HELD_   │             │   LAYER 5   │   │    ENTER    │             │      0      │
-                                    &trans        &trans      &to GAME1       &kp KP_ENTER      &trans      &kp KP_N0
+//                             │     HELD_   │  Ctrl+RET   │  Ctrl+BSPC  │   │    ENTER    │             │      0      │
+                                    &trans     &kp LC(RET)  &kp LC(BSPC)      &kp KP_ENTER      &trans      &kp KP_N0
 //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };

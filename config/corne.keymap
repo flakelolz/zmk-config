@@ -13,7 +13,7 @@
 #define GAME2     6
 
 #include "keys/36.h"
-#include "includes/macros.dtsi"
+// #include "includes/macros.dtsi"
 
 &soft_off {
     hold-time-ms = <500>; // Only turn off it the key is held half a second or longer.
@@ -66,14 +66,14 @@
     bindings = <
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
-// │      !      │      @      │      {      │      }      │      ^      │   │      +      │      7      │      8      │      9      │      _      │
-      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp CARET         &kp PLUS     &kp N7        &kp N8        &kp N9         &kp UNDER
+// │      !      │      @      │      {      │      }      │      ^      │   │      +      │      7      │      8      │      9      │      =      │
+      &kp EXCL      &kp AT        &kp LBRC      &kp RBRC      &kp CARET         &kp PLUS     &kp N7        &kp N8        &kp N9         &kp EQUAL
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      =      │      &      │      (      │      )      │      *      │   │      -      │      4      │      5      │      6      │      "      │
-      &kp EQUAL     &kp AMPS      &kp LPAR      &kp RPAR      &kp STAR          &kp MINUS    &kp N4        &kp N5        &kp N6          &kp DQT
+// │      _      │      &      │      (      │      )      │      $      │   │      -      │      4      │      5      │      6      │      "      │
+      &kp UNDER     &kp AMPS      &kp LPAR      &kp RPAR      &kp DLLR          &kp MINUS    &kp N4        &kp N5        &kp N6         &kp DQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      $      │      #      │      [      │      ]      │      %      │   │      >      │      1      │      2      │      3      │      |      │
-      &kp DLLR      &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp GT       &kp N1        &kp N2        &kp N3          &kp PIPE
+// │      ~      │      #      │      [      │      ]      │      %      │   │      *      │      1      │      2      │      3      │      |      │
+      &kp TILDE     &kp HASH      &kp LBKT      &kp RBKT      &kp PRCNT         &kp STAR     &kp N1        &kp N2        &kp N3         &kp PIPE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │    SHIFT    │    HELD_    │   │  (2, INS)   │(SHFT, SPACE)│      0      │
                                    &trans        &trans        &trans         &lt RAISE INS     &trans     &kp N0
@@ -91,8 +91,8 @@
 // │      F5     │      F6     │      F7     │      F8     │             │   │      ←      │      ↓      │      ↑      │      →      │      '      │
       &kp F5        &kp F6        &kp F7        &kp F8          &none           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT      &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │      F9     │     F10     │     F11     │     F12     │             │   │             │             │     =>      │     ->      │      \      │
-      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none         &none        &f_arrw       &s_arrw       &kp BSLH
+// │      F9     │     F10     │     F11     │     F12     │             │   │             │     ::      │     =>      │     ->      │      \      │
+      &kp F9       &kp F10       &kp F11       &kp F12          &none             &none       &d_colon      &f_arrw       &s_arrw        &kp BSLH
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //                             │             │             │   (1, DEL)  │   │    _HELD    │             │    PLAY     │
                                    &trans        &trans     &lt LOWER DEL         &trans        &trans      &kp C_PP
@@ -230,7 +230,6 @@
             flavor = "balanced";
             tapping-term-ms = <200>;                                // repeat on tap-into-hold
             quick-tap-ms = <175>;
-            display-name = "Thumb-Shift";
         };
 
         // Timer-less HomeRow Mods
@@ -285,7 +284,20 @@
 / {
 macros {
         // PROGRAMMING SYNTAX
-        s_arrw: slim_arrow { // ->
+
+        d_colon: double_colon {
+            display-name = "::";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp COLON>,
+                <&macro_tap>,
+                <&kp COLON>;
+        };
+
+        s_arrw: slim_arrow {
+            display-name = "->";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -295,7 +307,8 @@ macros {
                 <&kp GREATER_THAN>;
         };
 
-        f_arrw: fat_arrow { // =>
+        f_arrw: fat_arrow {
+            display-name = "=>";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =

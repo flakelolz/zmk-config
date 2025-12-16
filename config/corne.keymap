@@ -12,30 +12,6 @@
 #define GAME1     5
 #define GAME2     6
 
-#include "keys/36.h"
-
-&soft_off {
-    hold-time-ms = <500>; // Only turn off it the key is held half a second or longer.
-};
-
-&lt {  // layer-tap config
-  flavor = "hold-preferred";
-  tapping-term-ms = <200>;
-  quick-tap-ms = <175>;
-};
-
-&mt {  // mod-tap config
-  flavor = "hold-preferred";
-  tapping-term-ms = <200>;
-  quick-tap-ms = <175>;
-};
-
-&sk { // sticky key
-    release-after-ms = <500>;
-    quick-release;
-    /delete-property/ ignore-modifiers;
-};
-
 / {
   // 5x3 Layout
   chosen {
@@ -189,6 +165,85 @@
 };
 
 / {
+    behaviors {
+        ts: thumb_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&sk>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            hold-while-undecided-linger;
+        };
+
+        hml: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+        };
+
+        hmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+        };
+
+        tm: thumb_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            display-name = "Thumb-Mod";
+        };
+
+        tl: thumb_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+            display-name = "Thumb-Layer";
+        };
+    };
+};
+
+&soft_off {
+    hold-time-ms = <500>; // Only turn off it the key is held half a second or longer.
+};
+
+&lt {  // layer-tap config
+  flavor = "hold-preferred";
+  tapping-term-ms = <200>;
+  quick-tap-ms = <175>;
+};
+
+&mt {  // mod-tap config
+  flavor = "hold-preferred";
+  tapping-term-ms = <200>;
+  quick-tap-ms = <175>;
+};
+
+&sk { // sticky key
+    release-after-ms = <500>;
+    quick-release;
+    /delete-property/ ignore-modifiers;
+};
+
+
+/ {
     combos {
         compatible = "zmk,combos";
 
@@ -265,70 +320,7 @@
 };
 
 / {
-    behaviors {
-        ts: thumb_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&sk>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;                                // repeat on tap-into-hold
-            quick-tap-ms = <175>;
-            hold-while-undecided-linger;
-        };
-
-        // Timer-less HomeRow Mods
-        hml: homerow_mods_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <280>;                                // repeat on tap-into-hold
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-key-positions = <RIGHT_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;                                // requires PR #1423
-        };
-
-        hmr: homerow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <280>;                                // repeat on tap-into-hold
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-key-positions = <LEFT_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;                                // requires PR #1423
-        };
-
-        // INFO: Space+Shift
-        tm: thumb_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;                                // repeat on tap-into-hold
-            quick-tap-ms = <175>;
-            // retro-tap;                                           // use tap when key is used without another key
-            display-name = "Thumb-Mod";
-        };
-
-        tl: thumb_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <175>;
-            quick-tap-ms = <150>;
-            bindings = <&mo>, <&kp>;
-            display-name = "Thumb-Layer";
-        };
-    };
-};
-
-/ {
 macros {
-        // PROGRAMMING SYNTAX
-
         d_colon: double_colon {
             display-name = "::";
             compatible = "zmk,behavior-macro";

@@ -121,9 +121,6 @@
 
     work_layer { // layer 4 (for work)
     bindings = <
-    //TODO: Alt+Tab
-    // Ctrl+Enter
-    // Ctrl+Backspace
 
 // ╭─────────────────────────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────────────────────────╮
 // │   Alt+Tab   │             │             │             │             │   │      +      │      7      │      8      │      9      │   NUM LOCK  │
@@ -221,6 +218,20 @@
             key-positions = <10 19>;
             bindings = <&soft_off>;
         };
+
+        combo_left_angle {
+            timeout-ms = <50>;
+            layers = <1>;
+            key-positions = <27 33>;
+            bindings = <&kp LT>;
+        }
+
+        combo_right_angle {
+            timeout-ms = <50>;
+            layers = <1>;
+            key-positions = <28 33>;
+            bindings = <&kp GT>;
+        }
     };
 };
 

@@ -233,6 +233,20 @@
             bindings = <&kp DOT>;
         };
 
+        combo_colon {
+            timeout-ms = <30>;
+            layers = <1>;
+            key-positions = <19 34>;
+            bindings = <&kp COLON>;
+        };
+
+        combo_question {
+            timeout-ms = <30>;
+            layers = <1>;
+            key-positions = <29 34>;
+            bindings = <&kp QUESTION>;
+        };
+
         combo_left_angle {
             timeout-ms = <30>;
             layers = <1>;

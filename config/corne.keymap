@@ -226,7 +226,7 @@
             bindings = <&kp COMMA>;
         };
 
-        combo_comma {
+        combo_dot {
             timeout-ms = <30>;
             layers = <1>;
             key-positions = <28 34>;

@@ -220,18 +220,18 @@
         };
 
         combo_left_angle {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             layers = <1>;
             key-positions = <27 33>;
             bindings = <&kp LT>;
-        }
+        };
 
         combo_right_angle {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             layers = <1>;
             key-positions = <28 33>;
             bindings = <&kp GT>;
-        }
+        };
     };
 };
 

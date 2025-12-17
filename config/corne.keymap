@@ -43,7 +43,7 @@
             bindings = <
   &kp F1  &kp F2   &kp F3   &kp F4   &none            &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp GRAVE
   &kp F5  &kp F6   &kp F7   &kp F8   &none            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp SQT
-  &kp F9  &kp F10  &kp F11  &kp F12  &none            &none     &d_colon   &f_arrw    &s_arrw    &kp BSLH
+  &kp F9  &kp F10  &kp F11  &kp F12  &none            &walrus   &d_colon   &f_arrw    &s_arrw    &kp BSLH
                    &trans   &trans   &lt LOWER DEL    &trans    &trans     &kp C_PP
             >;
         };
@@ -194,13 +194,6 @@
             bindings = <&kp ESC>;
         };
 
-        combo_work_ctrl_enter {
-            timeout-ms = <50>;
-            layers = <4>;
-            key-positions = <12 13>;
-            bindings = <&kp LC(ENTER)>;
-        };
-
         combo_bt_clr_all {
             timeout-ms = <50>;
             layers = <3>;
@@ -288,6 +281,14 @@
                 <&kp EQUAL>,
                 <&macro_tap>,
                 <&kp GREATER_THAN>;
+        };
+
+        walrus: walrus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp COLON>, <&macro_tap>, <&kp EQUAL>;
+
+            label = "WALRUS";
         };
     };
 };

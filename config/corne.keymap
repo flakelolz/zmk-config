@@ -59,7 +59,7 @@
 
         work {
             bindings = <
-  &kp LA(TAB)  &none      &none      &none        &none           &kp KP_PLUS   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_NUM
+  &kp LA(TAB)  &none      &none      &none        &none           &kp KP_PLUS   &kp KP_N7  &kp KP_N8  &kp KP_N9  &none
   &kp LC(A)    &kp LC(S)  &none      &kp LC(F)    &none           &kp KP_MINUS  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MULTIPLY
   &kp LC(Z)    &kp LC(X)  &kp LC(C)  &kp LC(V)    &none           &kp KP_DOT    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DIVIDE
                           &trans     &kp LC(RET)  &kp LC(BSPC)    &kp KP_ENTER  &trans     &kp KP_N0

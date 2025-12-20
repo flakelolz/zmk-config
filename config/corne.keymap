@@ -41,10 +41,10 @@
 
         raise {
             bindings = <
-  &kp F1  &kp F2   &kp F3   &kp F4   &none            &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp GRAVE
-  &kp F5  &kp F6   &kp F7   &kp F8   &none            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp SQT
-  &kp F9  &kp F10  &kp F11  &kp F12  &none            &walrus   &d_colon   &f_arrw    &s_arrw    &kp BSLH
-                   &trans   &trans   &lt LOWER DEL    &trans    &trans     &kp C_PP
+  &kp F1     &kp F2   &kp F3   &kp F4    &kp F5           &kp F6    &kp F7     &kp F8     &kp F9     &kp F10
+  &walrus    &s_arrw  &f_arrw  &d_colon  &pipe            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp SQT
+  &kp GRAVE  &none    &none    &none     &none            &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp BSLH
+                      &kp F11  &kp F12   &lt LOWER DEL    &trans    &trans     &kp C_PP
             >;
         };
 
@@ -289,6 +289,18 @@
             bindings = <&macro_tap>, <&kp COLON>, <&macro_tap>, <&kp EQUAL>;
 
             label = "WALRUS";
+        };
+
+        pipe: pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp PIPE>,
+                <&macro_tap>,
+                <&kp GREATER_THAN>;
+
+            label = "PIPE";
         };
     };
 };

@@ -302,5 +302,13 @@
 
             label = "PIPE";
         };
+
+        macro_close: macro_close {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(W)>, <&macro_tap>, <&kp ENTER>;
+
+            label = "MACRO_CLOSE";
+        };
     };
 };
